@@ -18198,7 +18198,7 @@ MonoBehaviour:
   _parentDamageText: {fileID: 927497148}
   _prefabDamageText: {fileID: 7093167894290511336, guid: 111d1737df758fe409c0933631289286, type: 3}
   _enemySpawnerController: {fileID: 2043941476}
-  _playerController: {fileID: 0}
+  _playerController: {fileID: 5432843800642783086, guid: a775846be5c35d74c8a490af42b14db6, type: 3}
   _textTimer: {fileID: 305311747}
   _gameTimer: 0
   _oldSeonds: -1
@@ -22458,7 +22458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _gameSceneDirector: {fileID: 1890797351}
-  _player: {fileID: 0}
+  _player: {fileID: 6245215531348658317, guid: a775846be5c35d74c8a490af42b14db6, type: 3}
   _enemySpawnDatas:
   - _title: "0:00 \u30DC\u30B9"
     _elapsedMinutes: 0

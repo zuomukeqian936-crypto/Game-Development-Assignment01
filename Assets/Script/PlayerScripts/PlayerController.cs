@@ -32,13 +32,14 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
 
     //必要XP
-    private List<int> levelRequirements;
+    private List<int> _levelRequirements;
 
     public Vector2 _forward;
 
     private Text _levelText;
 
-
+    //現在装備中の武器
+    public List<BaseWeaponSpawner> _weaponSpawner;
 
     string trigger = "";
 
@@ -65,7 +66,8 @@ public class PlayerController : MonoBehaviour
     public void Init(GameSceneDirector sceneDirector, EnemySpawnerController enemySpawner,
         CharacterStats characterStats, Text levelText, Slider sliderHP, Slider sliderXP)
     { 
-        levelRequirements = new List<int>();
+        _levelRequirements = new List<int>();
+        _weaponSpawner = new List<BaseWeaponSpawner>();
 
         this._gameSceneDirector = sceneDirector;
         this._enemySpawnerController = enemySpawner;
@@ -78,10 +80,10 @@ public class PlayerController : MonoBehaviour
         _forward = Vector2.zero;
 
         //経験値の閾値リスト
-        levelRequirements.Add(0);
+        _levelRequirements.Add(0);
         for(int i = 1; i < 1000; i++)
         {
-            int prevxp = levelRequirements[i - 1];
+            int prevxp = _levelRequirements[i - 1];
             //41以降はレベル枚に16XPずつ増加
             int addXP = _addXP;
 
@@ -100,11 +102,11 @@ public class PlayerController : MonoBehaviour
             }
 
             //必要な経験値
-            levelRequirements.Add(prevxp + addXP);
+            _levelRequirements.Add(prevxp + addXP);
            
         }
 
-        _characterStats.MaxXP = levelRequirements[1];
+        _characterStats.MaxXP = _levelRequirements[1];
 
         //UIの初期化
         SetLevelText();
@@ -112,6 +114,12 @@ public class PlayerController : MonoBehaviour
         SetSliderXP();
 
         //MoveSliderHP();
+
+        //武器データセット
+        foreach(int item in characterStats.DefaultWeaponIds)
+        {
+            AddWeaponSpawner(item);
+        } 
     }
 
     /// <summary>
@@ -241,6 +249,29 @@ public class PlayerController : MonoBehaviour
     private void SetLevelText()
     {
         _levelText.text = "Lv" + _characterStats.Lv;
+    }
+
+    private void AddWeaponSpawner(int id)
+    {
+        //装備済みならレベルアップ
+        BaseWeaponSpawner spawner = _weaponSpawner.Find(item => item._weaponStats.Id == id);
+
+        if (spawner)
+        {
+            return;
+        }
+
+        //新規追加
+        spawner = WeaponSpawnerSettings.Instance.CreateWeaponSpawner(id, _enemySpawnerController, transform);
+
+        if(null == spawner)
+        {
+            Debug.LogError("武器データがありません");
+            return;
+        }
+
+        //装備済みリストへ追加
+        _weaponSpawner.Add(spawner);
     }
 
     private void OnDisable()
