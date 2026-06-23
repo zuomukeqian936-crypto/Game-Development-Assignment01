@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class SlashSpawnerController : BaseWeaponSpawner
+public class AxeSpawnerController : BaseWeaponSpawner
 {
-
     [Header("Spawn Settings")]
     [SerializeField] private int _onceSpawnCount;
     [SerializeField] private float _onceSpawnTime = 0.3f;
@@ -29,21 +28,18 @@ public class SlashSpawnerController : BaseWeaponSpawner
 
         int dir = (_onceSpawnCount % 2 == 0) ? 1 : -1;
 
-        Vector3 pos = transform.position;
-        pos.x += 2f * dir;
-
         //生成
-        SlashController ctrl = (SlashController)CreateWeapon(pos, transform);
+        AxeController ctrl = (AxeController)CreateWeapon(transform.position);
 
-        //角度を変える処理
-        ctrl.transform.eulerAngles = ctrl.transform.eulerAngles * dir;
+        //斜めに力を加える処理
+        ctrl.GetComponent<Rigidbody2D>().AddForce(new Vector2(100 * dir, 350));
 
         //次回の生成タイマー
         _spawnTimer = _onceSpawnTime;
         _onceSpawnCount--;
 
         //生成が終わったらリセット
-        if(1 > _onceSpawnCount)
+        if (1 > _onceSpawnCount)
         {
             _spawnTimer = _weaponStats.GetRandomSpawnTimer();
             _onceSpawnCount = (int)_weaponStats._spawnCount;

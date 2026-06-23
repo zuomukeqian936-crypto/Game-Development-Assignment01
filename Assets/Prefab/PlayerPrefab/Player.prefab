@@ -505,6 +505,7 @@ MonoBehaviour:
   _maxLevel: 1000
   _addXP: 16
   _forward: {x: 0, y: 0}
+  _weaponSpawner: []
 --- !u!114 &153210552847701432
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -132,6 +132,8 @@ public class PlayerController : MonoBehaviour
 
         _rb2D.linearVelocity = new Vector2(move.x * _characterStats.MoveSpeed, move.y * _characterStats.MoveSpeed);
 
+        _forward = new Vector2(move.x, move.y).normalized;
+
         //MoveAnimator(move);
     }
 

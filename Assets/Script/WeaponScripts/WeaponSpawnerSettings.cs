@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponSpawnerSettings", menuName = "Scriptable Objects/WeaponSettings")]
+[CreateAssetMenu(fileName = "WeaponSpawnerSettings", menuName = "Scriptable Objects/WeaponSpawnerSettings")]
 public class WeaponSpawnerSettings : ScriptableObject
 {
 
@@ -66,7 +66,7 @@ public class WeaponSpawnerSettings : ScriptableObject
 
 }
 //武器生成処理
-    
+
 
 [System.Serializable]
 public class WeaponSpawnerStats : BaseStats

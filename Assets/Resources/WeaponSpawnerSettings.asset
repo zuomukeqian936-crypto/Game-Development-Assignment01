@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 152bea4d22d923c45986521cf5f081f0, type: 3}
   m_Name: WeaponSpawnerSettings
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSpawnerSettings
   _datas:
   - Title: "\u30B9\u30E9\u30C3\u30B7\u30E5"
     Id: 0
     Lv: 1
-    Name: 
-    Description: 
+    Name: "\u30B9\u30E9\u30C3\u30B7\u30E5"
+    Description: "\t\t"
     Attack: 15
     Defense: 0
     HP: -1
@@ -33,3 +33,63 @@ MonoBehaviour:
     _spawnCount: 2
     _spawnTimerMin: 2
     _spawnTimerMax: 2
+  - Title: "\u65A7"
+    Id: 1
+    Lv: 1
+    Name: "\u65A7"
+    Description: "\t\t"
+    Attack: 30
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 0
+    PickUpRange: 0
+    AliveTime: 5
+    _prefabSpawner: {fileID: 5174432054462432657, guid: 408a435e9d49eb644b80c4cbfbbf96ce, type: 3}
+    _icon: {fileID: -804703360100667301, guid: 6bb989127d24e294490782a740687d81, type: 3}
+    _leevlUpItemId: 1
+    _spawnCount: 2
+    _spawnTimerMin: 3
+    _spawnTimerMax: 4
+  - Title: "\u77E2"
+    Id: 2
+    Lv: 1
+    Name: "\u77E2"
+    Description: "\u30E9\u30F3\u30C0\u30E0\u306B\u6575\u306B\u5411\u304B\u3063\u3066\u8CAB\u901A\u3059\u308B\u5F13\u3092\u653E\u3064\n\u8CAB\u901A\u6642\u306F30%\u306E\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B"
+    Attack: 15
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: 10
+    _prefabSpawner: {fileID: 135660679824302986, guid: fb413ed3f44d7464782cf7413227c386, type: 3}
+    _icon: {fileID: 2848921181339494851, guid: d4049734be36be8479470a696f662191, type: 3}
+    _leevlUpItemId: 4
+    _spawnCount: 2
+    _spawnTimerMin: 2
+    _spawnTimerMax: 3
+  - Title: "\u30CA\u30A4\u30D5"
+    Id: 3
+    Lv: 1
+    Name: "\u30CA\u30A4\u30D5"
+    Description: "\u9032\u884C\u65B9\u5411\u306B\u30CA\u30A4\u30D5\u3092\u6295\u3052\u308B"
+    Attack: 10
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: 10
+    _prefabSpawner: {fileID: 847451248601029019, guid: 39f6fadf01d4bc64fb0663a967aedc41, type: 3}
+    _icon: {fileID: 1284307657752480429, guid: 3df10b447c59f974b9906c30520ac6a6, type: 3}
+    _leevlUpItemId: 3
+    _spawnCount: 3
+    _spawnTimerMin: 3
+    _spawnTimerMax: 3
