@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerInitialStats _playerStats;
     [SerializeField] private GameSceneDirector _gameSceneDirector;
     [SerializeField] private CharacterStats _characterStats;
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
@@ -134,22 +133,22 @@ public class PlayerController : MonoBehaviour
 
         _forward = new Vector2(move.x, move.y).normalized;
 
-        //MoveAnimator(move);
+        MoveAnimator(move);
     }
 
     //アニメーション再生処理
-    private void MoveAnimator(Vector3 move)
+    private void MoveAnimator(Vector2 move)
     {
         //上移動アニメーション設定
-        if (move.y >= 1)
+        if (move.y >= 1 && move.x == 0)
         {
-            trigger = "isUp";
+            trigger = "isBackward";
         }
 
         //下移動アニメーション設定
-        if (move.y <= 1)
+        if (move.y <= -1 && move.x == 0)
         {
-            trigger = "isDown";
+            trigger = "isForward";
         }
 
         //右移動アニメーション設定
@@ -159,10 +158,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //左移動アニメーション設定
-        if (move.x <= 0.5f)
+        if (move.x <= -0.5f)
         {
             trigger = "isLeft";
         }
+
+        if (Vector2.zero == move) return;
 
         //アニメーション再生処理
         _animator.SetTrigger(trigger);
@@ -176,18 +177,18 @@ public class PlayerController : MonoBehaviour
     {
         if (!enabled) return;
 
-        float damage = Mathf.Max(0, attack - _playerStats.Defense);
-        _playerStats.HP -= damage;
+        float damage = Mathf.Max(0, attack - _characterStats.Defense);
+        _characterStats.HP -= damage;
 
         //ダメージ表示
         _gameSceneDirector.DispDamage(gameObject, damage);
 
-        if (0 > _playerStats.HP)
+        if (0 > _characterStats.HP)
         {
 
         }
 
-        if (0 > _playerStats.HP) _playerStats.HP = 0;
+        if (0 > _characterStats.HP) _characterStats.HP = 0;
         SetSliderHP();
     }
 
@@ -196,8 +197,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SetSliderHP()
     {
-        _sliderHP.maxValue = _playerStats.MaxHP;
-        _sliderHP.value = _playerStats.HP;
+        _sliderHP.maxValue = _characterStats.MaxHP;
+        _sliderHP.value = _characterStats.HP;
     }
 
     /// <summary>
@@ -205,8 +206,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SetSliderXP()
     {
-        _sliderXP.maxValue = _playerStats.MaxXP;
-        _sliderXP.value = _playerStats.XP;
+        _sliderXP.maxValue = _characterStats.MaxXP;
+        _sliderXP.value = _characterStats.XP;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

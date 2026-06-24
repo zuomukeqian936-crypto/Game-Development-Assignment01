@@ -14,8 +14,7 @@ public class KinifeController : BaseWeapon
     // Update is called once per frame
     void Update()
     {
-        _rb2D.position += _forward.normalized * _weaponSpawnerStats.MoveSpeed * Time.deltaTime;
-
+        _rb2D.position += _forward * _weaponSpawnerStats.MoveSpeed * Time.deltaTime;
     }
 
     //トリガーが衝突したときに呼ばれる処理

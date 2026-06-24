@@ -1,5 +1,6 @@
 using DG.Tweening;
 using TMPro;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
@@ -17,7 +18,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private CharacterStats _characterStats;
     [SerializeField] private GameSceneDirector _sceneDirector;
     [SerializeField] private GameObject _player;
-    
 
     [Header("Enemy Attack Cool Down Time")]
     private float _maxCoolDownTime = 0.5f;
@@ -96,18 +96,26 @@ public class EnemyController : MonoBehaviour
     {
         if (State.Alive != _state) return;
 
-        if (_player != null)
+        if (MoveType.TargetPlayer == _characterStats.MoveType)
         {
             Vector2 dir = _player.transform.position - transform.position;
-            _forward = dir.normalized;
-
-            MoveEnemy();
+            _forward = dir.normalized;  
         }
+
+        MoveEnemy();
     }
 
     //敵移動処理
     private void MoveEnemy()
     {
+        if(State.Alive != _state) return;
+
+        if(MoveType.TargetPlayer == _characterStats.MoveType)
+        {
+            Vector2 dir = _player.transform.position - transform.position;
+            _forward = dir;
+        }
+
         _rb2D.position += _forward * _characterStats.MoveSpeed * Time.deltaTime;
     }
 
