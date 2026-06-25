@@ -111,6 +111,6 @@ public class GameSceneDirector : MonoBehaviour
     {
         //プレイヤー作成
         int playerId = 0;
-        _playerController = CharacterSettings.Instance.CreatePlayer(playerId, this, _enemySpawnerController, _levelText, _sliderHP, _sliderXP);
+        _playerController = CharactorSettings.Instance.CreatePlayer(playerId, this, _enemySpawnerController, _levelText, _sliderHP, _sliderXP);
     }
 }

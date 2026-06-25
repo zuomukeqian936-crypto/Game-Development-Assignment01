@@ -138,7 +138,7 @@ public class EnemySpawnerController : MonoBehaviour
         int id = _enemySpawnData._enemyIds[rnd];
 
         //敵生成
-        EnemyController enemy = CharacterSettings.Instance.CreateEnemy(id, _gameSceneDirector, pos);
+        EnemyController enemy = CharactorSettings.Instance.CreateEnemy(id, _gameSceneDirector, pos);
         _enemies.Add(enemy);
     }
 

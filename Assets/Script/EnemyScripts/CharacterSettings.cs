@@ -5,19 +5,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "CharacterSettings", menuName = "Scriptable Objects/CharacterSettings")]
-public class CharacterSettings : ScriptableObject
+public class CharactorSettings : ScriptableObject
 {
 
     public List<CharacterStats> _datas;
 
-    static CharacterSettings instance;
-    public static CharacterSettings Instance
+    static CharactorSettings instance;
+    public static CharactorSettings Instance
     {
         get
         {
             if (!instance)
             {
-                instance = Resources.Load<CharacterSettings>(nameof(CharacterSettings));
+                instance = Resources.Load<CharactorSettings>(nameof(CharactorSettings));
             }
             return instance;
         }
