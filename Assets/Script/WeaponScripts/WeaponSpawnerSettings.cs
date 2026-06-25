@@ -86,4 +86,34 @@ public class WeaponSpawnerStats : BaseStats
     {
         return Random.Range(_spawnTimerMin, _spawnTimerMax);
     }
+
+    //アイテム追加
+    public void AddItemData(ItemData itemData)
+    {
+        foreach(var item in itemData.Bonuses)
+        {
+            //武器固有のパラメータ
+            if(item.Key == StatsTypes.SpawnCount)
+            {
+                _spawnCount =applyBonus(_spawnCount, item.Value, item.Type);
+            }
+
+            //生成時間最小
+            else if(item.Key == StatsTypes.SpawnTimerMin)
+            {
+                _spawnTimerMin = applyBonus(_spawnTimerMin, item.Value, item.Type);
+            }
+
+            //生成時間最大
+            else if(item.Key == StatsTypes.SpawnTimerMax)
+            {
+                _spawnTimerMax = applyBonus(_spawnTimerMax, item.Value, item.Type);
+            }
+            //通常ボーナス
+            else
+            {
+                addBonue(item);
+            }
+        }
+    }
 }

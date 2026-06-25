@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using NUnit.Framework;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -80,5 +81,58 @@ public class BaseWeaponSpawner : MonoBehaviour
         if (0 < _spawnTimer) return true;
 
         return false;
+    }
+
+    //レベルアップ時のデータを返す
+    public WeaponSpawnerStats GetLevelUpStats(bool isNextLevel = false)
+    {
+        //次のレベル
+        int nextLv = _weaponStats.Lv + 1;
+
+        //次のレベルがあるかどうか調べ、あれば上書き
+        WeaponSpawnerStats ret = WeaponSpawnerSettings.Instance.Get(_weaponStats.Id, nextLv);
+
+        if(_weaponStats.Lv < ret.Lv)
+        {
+
+        }
+        else
+        {
+            //説明をアイテムのものに書き換える
+            ItemData itemData = ItemSettings.Instance.Get(_weaponStats._leevlUpItemId);
+            ret.Description = itemData.Description;
+        }
+
+        //レベルを1あげて返すかどうか
+        if (isNextLevel)
+        {
+            ret.Lv = nextLv;
+        }
+
+        return ret;
+    }
+
+    //レベルアップ
+    public void LevelUp()
+    {
+        //現在のレベル
+        int lv = _weaponStats.Lv;
+
+        //次のレベルデータ
+        WeaponSpawnerStats nextData = GetLevelUpStats();
+
+        //現在のレベルと違えば上書き
+        if (_weaponStats.Lv < nextData.Lv)
+        {
+            _weaponStats = nextData;
+        }
+        else
+        {
+            //説明をアイテムのものに書き換える
+            ItemData itemData = ItemSettings.Instance.Get(_weaponStats._leevlUpItemId);
+            _weaponStats.AddItemData(itemData);
+        }
+
+        _weaponStats.Lv = lv + 1;
     }
 }

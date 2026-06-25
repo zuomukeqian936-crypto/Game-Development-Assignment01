@@ -82,5 +82,14 @@ public class CharacterStats : BaseStats
     //装備可変数
     public int UsableweaponMax;
     public MoveType MoveType;
+
+    //アイテム追加
+    public void AddItemData(ItemData itemData)
+    {
+        foreach(var item in itemData.Bonuses)
+        {
+            addBonue(item);
+        }
+    }
     
 }
