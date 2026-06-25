@@ -36,7 +36,6 @@ public class EnemySpawnerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameSceneDirector _gameSceneDirector;
-    [SerializeField] private GameObject _player;
 
     [Header("Enemy Spawn Data")]
     [SerializeField] private List<EnemySpawnData> _enemySpawnDatas;
@@ -47,7 +46,7 @@ public class EnemySpawnerController : MonoBehaviour
     //生成した敵
     private List<EnemyController> _enemies;
 
-    private Tilemap _tilemapCollider;
+    [SerializeField]private Tilemap _tilemapCollider;
 
     private EnemySpawnData _enemySpawnData;
 
@@ -60,14 +59,6 @@ public class EnemySpawnerController : MonoBehaviour
 
     //敵の出現位置
     private const float _spawnRadius = 13f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        if (_player != null) return;
-
-        _player = GameObject.FindWithTag("Player");
-    }
 
     // Update is called once per frame
     void Update()
@@ -109,7 +100,7 @@ public class EnemySpawnerController : MonoBehaviour
     //通常生成
     private void SpawnNormal()
     {
-        Vector3 center = _player.transform.position;
+        Vector3 center = _gameSceneDirector._playerController.transform.position;
 
         //敵生成
         for(int i = 0; i < _enemySpawnData._spawnCountMax; i++)
@@ -122,7 +113,7 @@ public class EnemySpawnerController : MonoBehaviour
             float y = Mathf.Sin(angle * Mathf.Deg2Rad) * _spawnRadius;
 
             //生成位置
-            Vector2 pos = center + new Vector3(x, y, 0);
+            Vector3 pos = center + new Vector3(x, y, 0);
 
             //当たり判定のあるタイル状なら生成しない処理
             if (Utils.IsColliderTile(_tilemapCollider, pos)) continue;
@@ -138,14 +129,14 @@ public class EnemySpawnerController : MonoBehaviour
         int id = _enemySpawnData._enemyIds[rnd];
 
         //敵生成
-        EnemyController enemy = CharactorSettings.Instance.CreateEnemy(id, _gameSceneDirector, pos);
+        EnemyController enemy = CharacterSettings.Instance.CreateEnemy(id, _gameSceneDirector, pos);
         _enemies.Add(enemy);
     }
 
     //グループで生成
     private void SpawnGroup()
     {
-        Vector3 center = _player.transform.position;
+        Vector3 center = _gameSceneDirector._playerController.transform.position;
 
         //プレイヤー周辺の出現場所
         float angle = UnityEngine.Random.Range(0, 360);
@@ -169,7 +160,7 @@ public class EnemySpawnerController : MonoBehaviour
             y = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
 
             //生成位置
-            Vector2 pos = center + new Vector3(x, y, 0);
+            Vector3 pos = center + new Vector3(x, y, 0);
 
             //当たり判定のあるタイル状なら生成しない処理
             if (Utils.IsColliderTile(_tilemapCollider, pos)) continue;

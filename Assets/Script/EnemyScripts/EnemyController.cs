@@ -1,23 +1,17 @@
 using DG.Tweening;
-using TMPro;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyController : MonoBehaviour
 {
-    private enum State
+    public enum State
     {
         Alive,
         Dead,
     }
 
     [Header("References")]
-    [SerializeField] private CharacterStats _characterStats;
+    public CharacterStats _characterStats;
     [SerializeField] private GameSceneDirector _sceneDirector;
-    [SerializeField] private GameObject _player;
 
     [Header("Enemy Attack Cool Down Time")]
     private float _maxCoolDownTime = 0.5f;
@@ -35,9 +29,9 @@ public class EnemyController : MonoBehaviour
 
     private Vector2 _forward;
 
-    private State _state;
+    public State _state;
 
-    private Rigidbody2D _rb2D;
+    public Rigidbody2D _rb2D;
 
     
     void Update()
@@ -78,15 +72,12 @@ public class EnemyController : MonoBehaviour
             .SetLoops(-1, LoopType.Yoyo);
 
         //進む方向
-        _player = GameObject.FindWithTag("Player");
+        PlayerController plaeyr = _sceneDirector._playerController;
+        Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
+        _forward = dir;
 
-        if (_player != null)
-        {
-            Vector2 dir = _player.transform.position - transform.position;
-            _forward = dir;
-
-            _state = State.Alive;
-        }
+        _state = State.Alive;
+     
     }
 
     /// <summary>
@@ -98,7 +89,7 @@ public class EnemyController : MonoBehaviour
 
         if (MoveType.TargetPlayer == _characterStats.MoveType)
         {
-            Vector2 dir = _player.transform.position - transform.position;
+            Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
             _forward = dir.normalized;  
         }
 
@@ -112,7 +103,7 @@ public class EnemyController : MonoBehaviour
 
         if(MoveType.TargetPlayer == _characterStats.MoveType)
         {
-            Vector2 dir = _player.transform.position - transform.position;
+            Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
             _forward = dir;
         }
 
@@ -152,7 +143,8 @@ public class EnemyController : MonoBehaviour
 
         if (createXP)
         {
-
+            //経験値生成
+            _sceneDirector.CreateXP(this);
         }
 
         _state = State.Dead;

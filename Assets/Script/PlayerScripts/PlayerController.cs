@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameSceneDirector _gameSceneDirector;
-    [SerializeField] private CharacterStats _characterStats;
+    [SerializeField] public CharacterStats _characterStats;
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
 
     private Slider _sliderHP;
@@ -275,6 +275,32 @@ public class PlayerController : MonoBehaviour
 
         //装備済みリストへ追加
         _weaponSpawner.Add(spawner);
+    }
+
+    //経験値取得
+    public void GetXP(float xp)
+    {
+        _characterStats.XP += xp;
+
+        //レベル上限
+        if (_levelRequirements.Count - 1 < _characterStats.Lv) return;
+
+        //レベル上限
+        if (_levelRequirements[_characterStats.Lv] <= _characterStats.XP)
+        {
+            _characterStats.Lv++;
+
+            //次の経験値
+            if(_characterStats.Lv < _levelRequirements.Count)
+            {
+                _characterStats.XP = 0;
+                _characterStats.MaxXP = _levelRequirements[_characterStats.Lv];
+            }
+            //レベルアップパネルの表示
+            //SetTextLv();
+        }
+        //表示更新
+        SetSliderXP();
     }
 
     private void OnDisable()

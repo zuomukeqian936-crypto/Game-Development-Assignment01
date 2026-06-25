@@ -1,23 +1,22 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "CharacterSettings", menuName = "Scriptable Objects/CharacterSettings")]
-public class CharactorSettings : ScriptableObject
+public class CharacterSettings : ScriptableObject
 {
 
     public List<CharacterStats> _datas;
 
-    static CharactorSettings instance;
-    public static CharactorSettings Instance
+    static CharacterSettings instance;
+    public static CharacterSettings Instance
     {
         get
         {
             if (!instance)
             {
-                instance = Resources.Load<CharactorSettings>(nameof(CharactorSettings));
+                instance = Resources.Load<CharacterSettings>(nameof(CharacterSettings));
             }
             return instance;
         }
@@ -26,9 +25,16 @@ public class CharactorSettings : ScriptableObject
 
     //リストのIDからデータを検索する
     public CharacterStats Get(int id)
+{
+    var data = _datas.Find(item => item.Id == id);
+    if (data == null)
     {
-        return (CharacterStats)_datas.Find(item => item.Id == id).GetCopy();
+        Debug.LogError($"CharacterSettings に ID {id} のデータが存在しません。");
+        return null;
     }
+    return (CharacterStats)data.GetCopy();
+}
+
 
     //敵生成処理
     public EnemyController CreateEnemy(int id, GameSceneDirector sceneDirector, Vector3 position)
@@ -47,7 +53,7 @@ public class CharactorSettings : ScriptableObject
     public PlayerController CreatePlayer(int id, GameSceneDirector sceneDirector,
         EnemySpawnerController enemySpawner, Text levelText, Slider sliderHp, Slider sliderXp)
     {
-        CharacterStats stats = instance.Get(id);
+        CharacterStats stats = Instance.Get(id);
 
         GameObject obj = Instantiate(stats.prefab, Vector3.zero, Quaternion.identity);
 

@@ -18,7 +18,7 @@ public static class Utils
     /// <param name="TilemapCollider2D"></param>
     /// <param name="position"></param>
     /// <returns></returns>
-    public static bool IsColliderTile(Tilemap TilemapCollider2D, Vector2 position)
+    public static bool IsColliderTile(Tilemap TilemapCollider2D, Vector3 position)
     {
         //セルの位置に変更処理
         Vector3Int cellPosition = TilemapCollider2D.WorldToCell(position);

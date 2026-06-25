@@ -4,7 +4,6 @@ using UnityEngine;
 public class XPController : MonoBehaviour
 {
     private GameSceneDirector _gameSceneDirector;
-    private GameObject _player;
     private Rigidbody2D _rb2D;
     private SpriteRenderer _spriteRenderer;
 
@@ -15,14 +14,13 @@ public class XPController : MonoBehaviour
     private float _fadeTime = 10f;
 
     //初期化
-    private void Init(GameSceneDirector gameSceneDirector, float xp)
+    public void Init(GameSceneDirector gameSceneDirector, float xp)
     {
         this._gameSceneDirector = gameSceneDirector;
         this._xp = xp;
 
         _rb2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _player = GameObject.FindWithTag("Player");
     }
     
     void Update()
@@ -49,8 +47,22 @@ public class XPController : MonoBehaviour
         }
 
         //プレイヤーとの距離
-        float dist = Vector2.Distance(transform.position, _player.transform.position);
+        float dist = Vector2.Distance(transform.position, _gameSceneDirector._playerController.transform.position);
         //所得範囲内で吸い込まれる処理
-        //if(dist < _gameSceneDirector._)
+        if(dist < _gameSceneDirector._playerController._characterStats.PickUpRange)
+        {
+            //少し早く移動
+            float speed = _gameSceneDirector._playerController._characterStats.MoveSpeed * 1.1f;
+            Vector2 forward = _gameSceneDirector._playerController.transform.position - transform.position;
+            _rb2D.position += forward.normalized * speed * Time.deltaTime;
+        }
+    }
+
+    //トリガーが衝突したとき
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.gameObject.TryGetComponent<PlayerController>(out var player)) return;
+        player.GetXP(_xp);
+        Destroy(gameObject);
     }
 }

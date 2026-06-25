@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -10,7 +13,7 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] private Transform _parentDamageText;
     [SerializeField] private GameObject _prefabDamageText;
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] public PlayerController _playerController;
 
     [Header("Timer Settings")]
     [SerializeField] private Text _textTimer;
@@ -21,6 +24,9 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] private Slider _sliderXP;
     [SerializeField] private Slider _sliderHP;
     [SerializeField] private Text _levelText;
+
+    [Header("XP Prefab")]
+    [SerializeField] private List<GameObject> _prefabXP;
 
     public Vector2 _TileMapStart;
     public Vector2 _TileMapEnd;
@@ -111,6 +117,30 @@ public class GameSceneDirector : MonoBehaviour
     {
         //プレイヤー作成
         int playerId = 0;
-        _playerController = CharactorSettings.Instance.CreatePlayer(playerId, this, _enemySpawnerController, _levelText, _sliderHP, _sliderXP);
+        _playerController = CharacterSettings.Instance.CreatePlayer(playerId, this, _enemySpawnerController, _levelText, _sliderHP, _sliderXP);
+    }
+
+    //経験値取得
+    public void CreateXP(EnemyController enemyController)
+    {
+        float xp = Random.Range(enemyController._characterStats.XP, enemyController._characterStats.MaxXP);
+        if (0 > xp) return;
+
+        //5未満
+        GameObject prefab = _prefabXP[0];
+        //10以上
+        if(10 <= xp)
+        {
+            prefab = _prefabXP[2];
+        }
+        else if(5  <= xp)
+        {
+            prefab = _prefabXP[1];
+        }
+
+        //初期化
+        GameObject obj = Instantiate(prefab, enemyController.transform.position, Quaternion.identity);
+        XPController ctrl = obj.GetComponent<XPController>();
+        ctrl.Init(this, xp);
     }
 }
