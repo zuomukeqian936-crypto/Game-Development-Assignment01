@@ -38,6 +38,11 @@ public class BaseWeaponSpawner : MonoBehaviour
     //武器生成
     protected BaseWeapon CreateWeapon(Vector3 position,Vector3 forward, Transform parent = null)
     {
+        if (_prefabWeapon == null)
+        {
+            Debug.LogError($"{name}: _prefabWeapon が設定されていません");
+            return null;
+        }
         //生成
         GameObject obj = Instantiate(_prefabWeapon, position, _prefabWeapon.transform.rotation, parent);
 

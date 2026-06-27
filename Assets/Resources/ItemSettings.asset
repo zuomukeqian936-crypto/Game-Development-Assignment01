@@ -17,16 +17,16 @@ MonoBehaviour:
     Id: 0
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
     Description: "\u653B\u6483\u529B+10%"
-    Icon: {fileID: 0}
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 1
       Key: 0
       Value: 0.1
   - Title: "\u3010\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u3011 \u653B\u6483\u901F\u5EA6+10%"
-    Id: 0
+    Id: 1
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
     Description: "\u653B\u6483\u901F\u5EA6+10%"
-    Icon: {fileID: 0}
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 1
       Key: 10
@@ -39,7 +39,7 @@ MonoBehaviour:
     Id: 2
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
     Description: "\u751F\u6210\u6570+2"
-    Icon: {fileID: 0}
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 0
       Key: 9
@@ -51,7 +51,7 @@ MonoBehaviour:
     Id: 3
     Name: "\u30A2\u30FC\u30DE\u30FC"
     Description: "\u9632\u5FA1\u529B+10%"
-    Icon: {fileID: 0}
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 1
       Key: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
     Id: 4
     Name: "\u30B7\u30E5\u30FC\u30BA"
     Description: "\u30B9\u30D4\u30FC\u30C9+5%"
-    Icon: {fileID: 0}
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 1
       Key: 2
@@ -69,16 +69,16 @@ MonoBehaviour:
     Id: 5
     Name: "\u30CF\u30FC\u30C8"
     Description: "\u4F53\u529B\u56DE\u5FA9"
-    Icon: {fileID: 0}
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 0
       Key: 3
       Value: 50
-  - Title: "\u30B7\u30E5\u30FC\u30BA"
-    Id: 4
-    Name: "\u30B7\u30E5\u30FC\u30BA"
-    Description: "\u4F53\u529B\u56DE\u5FA9"
-    Icon: {fileID: 0}
+  - Title: "\u7BC4\u56F2\u5411\u4E0A"
+    Id: 6
+    Name: "\u7BC4\u56F2\u5411\u4E0A"
+    Description: "\u53D6\u5F97\u7BC4\u56F2\u5411\u4E0A"
+    Icon: {fileID: 9184980251107869091, guid: 53e6fd5808cec7042a9bc04ba5327a3a, type: 3}
     Bonuses:
     - Type: 0
       Key: 7

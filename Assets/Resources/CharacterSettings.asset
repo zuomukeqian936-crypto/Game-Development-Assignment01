@@ -15,21 +15,21 @@ MonoBehaviour:
   _datas:
   - Title: Player
     Id: 0
-    Lv: 0
+    Lv: 1
     Name: player
     Description: "\t\t"
     Attack: 5
     Defense: 1
     HP: 100
-    MaxHP: 100
+    MaxHP: 200
     XP: 0
-    MaxXP: 10
+    MaxXP: 50
     MoveSpeed: 3
     PickUpRange: 0.5
     AliveTime: 0
     prefab: {fileID: 7653311457445682073, guid: 068a80b8b21eada498735d9e67e94b30, type: 3}
-    DefaultWeaponIds: 00000000010000000200000004000000
-    UsableWeaponIds: 
+    DefaultWeaponIds: 0000000001000000020000000300000004000000050000000600000007000000
+    UsableWeaponIds: 0000000001000000020000000400000005000000060000000700000008000000
     UsableweaponMax: 6
     MoveType: 1
   - Title: "\u30B3\u30A6\u30E2\u30EA"

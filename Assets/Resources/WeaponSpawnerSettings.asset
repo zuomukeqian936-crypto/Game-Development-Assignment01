@@ -29,7 +29,7 @@ MonoBehaviour:
     AliveTime: 0.5
     _prefabSpawner: {fileID: 8435724550608126000, guid: a63ce70afcae24a4e813166e7d8483bc, type: 3}
     _icon: {fileID: -7300780361675425280, guid: 12264ff8bd5c99143b51efb9a555a812, type: 3}
-    _leevlUpItemId: 1
+    _leevlUpItemId: 3
     _spawnCount: 2
     _spawnTimerMin: 2
     _spawnTimerMax: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
     AliveTime: 5
     _prefabSpawner: {fileID: 5174432054462432657, guid: 408a435e9d49eb644b80c4cbfbbf96ce, type: 3}
     _icon: {fileID: -804703360100667301, guid: 6bb989127d24e294490782a740687d81, type: 3}
-    _leevlUpItemId: 1
+    _leevlUpItemId: 3
     _spawnCount: 2
     _spawnTimerMin: 3
     _spawnTimerMax: 4
@@ -87,7 +87,7 @@ MonoBehaviour:
     MoveSpeed: 10
     PickUpRange: 0
     AliveTime: 10
-    _prefabSpawner: {fileID: 847451248601029019, guid: 39f6fadf01d4bc64fb0663a967aedc41, type: 3}
+    _prefabSpawner: {fileID: 132419457382482675, guid: 3b1fe0d6c8bc64342b6177dc94ee7753, type: 3}
     _icon: {fileID: 1284307657752480429, guid: 3df10b447c59f974b9906c30520ac6a6, type: 3}
     _leevlUpItemId: 3
     _spawnCount: 3
@@ -113,3 +113,63 @@ MonoBehaviour:
     _spawnCount: 1
     _spawnTimerMin: 2
     _spawnTimerMax: 3
+  - Title: "\u30B7\u30FC\u30EB\u30C9"
+    Id: 5
+    Lv: 1
+    Name: "\u30B7\u30FC\u30EB\u30C9"
+    Description: "\u6575\u3092\u8DF3\u306D\u8FD4\u3059\u30B7\u30FC\u30EB\u30C9"
+    Attack: 5
+    Defense: 0
+    HP: 5
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: -1
+    _prefabSpawner: {fileID: 1746305039170094931, guid: 51c8c9b414724de41a9d5d9a5b46a7f5, type: 3}
+    _icon: {fileID: 548624563323398188, guid: ea1f580b38739b44a8c675bd08d7c383, type: 3}
+    _leevlUpItemId: 4
+    _spawnCount: 3
+    _spawnTimerMin: 10
+    _spawnTimerMax: 10
+  - Title: "\u624B\u88CF\u5263"
+    Id: 6
+    Lv: 1
+    Name: "\u624B\u88CF\u5263"
+    Description: "\u624B\u88CF\u5263\u3092\u6295\u3052\u308B"
+    Attack: 15
+    Defense: 0
+    HP: 0
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 10
+    PickUpRange: 0
+    AliveTime: 10
+    _prefabSpawner: {fileID: 2729476907501180794, guid: b58965e94b838db43b7ab620c69c83d4, type: 3}
+    _icon: {fileID: -1459074816100561509, guid: 558534455e9c25048960da4ed5e84c63, type: 3}
+    _leevlUpItemId: 4
+    _spawnCount: 4
+    _spawnTimerMin: 0.5
+    _spawnTimerMax: 2
+  - Title: "\u5186\u6708\u8F2A"
+    Id: 7
+    Lv: 1
+    Name: "\u5186\u6708\u8F2A"
+    Description: "\u753B\u9762\u7AEF\u3067\u8DF3\u306D\u8FD4\u308B\u5186\u5F62\u306E\u624B\u88CF\u5263"
+    Attack: 10
+    Defense: 0
+    HP: -1
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 8
+    PickUpRange: 0
+    AliveTime: -1
+    _prefabSpawner: {fileID: 8812162923743561739, guid: 8e34de8be56a1c64a94f1cb0a62824c8, type: 3}
+    _icon: {fileID: -2870410492317577444, guid: 27f55a6dae2453e409d57386f6b8055b, type: 3}
+    _leevlUpItemId: 4
+    _spawnCount: 1
+    _spawnTimerMin: 5
+    _spawnTimerMax: 5

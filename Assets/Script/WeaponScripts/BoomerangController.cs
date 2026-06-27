@@ -27,6 +27,6 @@ public class BoomerangController : BaseWeapon
     //トリガーが衝突したときに呼ばれる処理
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        attackEnemy(collision);
+        DefaultAttackEnemy(collision);
     }
 }

@@ -41,7 +41,7 @@ public class BaseWeapon : MonoBehaviour
     }
 
     //敵へ攻撃（デフォルト攻撃）
-    protected void attackEnemy(Collider2D collider2d)
+    protected void DefaultAttackEnemy(Collider2D collider2d)
     {
         AttackEnemy(collider2d, _weaponSpawnerStats.Attack);
     }

@@ -14,6 +14,7 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] private GameObject _prefabDamageText;
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
     [SerializeField] public PlayerController _playerController;
+    [SerializeField] private PanelLevelUpController _panelLevelUpController;
 
     [Header("Timer Settings")]
     [SerializeField] private Text _textTimer;
@@ -38,6 +39,7 @@ public class GameSceneDirector : MonoBehaviour
         SetInitialPlayer();
         SetInitialMovementRange();
         _enemySpawnerController.Init(this, _tileMapCollider);
+        _panelLevelUpController.Init(this);
 
         if (_playerController != null) return;
         _playerController = FindAnyObjectByType<PlayerController>();
@@ -142,5 +144,75 @@ public class GameSceneDirector : MonoBehaviour
         GameObject obj = Instantiate(prefab, enemyController.transform.position, Quaternion.identity);
         XPController ctrl = obj.GetComponent<XPController>();
         ctrl.Init(this, xp);
+    }
+
+    //ゲーム再開/停止処理
+    private void SetEnabled(bool enabled = true)
+    {
+        this.enabled = enabled; 
+        Time.timeScale = (enabled) ? 1 : 0;
+        _playerController.SetEnabled(enabled);
+    }
+
+    //ゲーム再開
+    public void PlayGame(BonusData bonusData = null)
+    {
+        //アイテム追加
+        _playerController.AddBonusData(bonusData);
+
+        //ゲーム再開
+        SetEnabled();
+    }
+
+    //レベルアップ時
+    public void DispPanelLevelUp()
+    {
+        //追加したアイテム
+        List<WeaponSpawnerStats> items = new List<WeaponSpawnerStats>();
+
+        //生成数
+        int randomCount = _panelLevelUpController.GetButtonCount();
+        //武器の数が足りない場合は減らす
+        int listCount = _playerController.GetUsableWeaponIds().Count;
+
+        if(listCount < randomCount)
+        {
+            randomCount = listCount;
+        }
+
+        for(int i = 0; i < randomCount; i++)
+        {
+            //ボーナスをランダムで生成
+            WeaponSpawnerStats randomItem = _playerController.GetRandomSpawnerStats();
+
+            //データなし
+            if (null == randomItem) continue;
+
+            //かぶりチェック
+            WeaponSpawnerStats findItem = items.Find(item => item.Id == randomItem.Id);
+
+            //かぶり無し
+            if(null == findItem)
+            {
+                items.Add(randomItem);
+            }
+            //もう一周
+            else
+            {
+                i--;
+            }
+        }
+
+        //レベルアップパネル表示
+        _panelLevelUpController.DispPanel(items);
+
+        //ゲーム停止
+        SetEnabled(false);
+    }
+
+    //宝箱パネルを表示
+    public void DispPanelTreasureChest()
+    {
+
     }
 }
