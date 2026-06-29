@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
     [SerializeField] public PlayerController _playerController;
     [SerializeField] private PanelLevelUpController _panelLevelUpController;
+    [SerializeField] private PanelTreasureChestController _treasureChestController;
 
     [Header("Timer Settings")]
     [SerializeField] private Text _textTimer;
@@ -29,6 +31,25 @@ public class GameSceneDirector : MonoBehaviour
     [Header("XP Prefab")]
     [SerializeField] private List<GameObject> _prefabXP;
 
+    [Header("Treasures Settigns")]//宝箱関連
+    [SerializeField] private GameObject _treasureChestPrefab;
+    [SerializeField] private List<int> _treasureChestItemIds;
+    [SerializeField] private float _treasureChestTimerMin;
+    [SerializeField] private float _treasureChestTimerMax;
+    private float _treasureChestTimer;
+
+    [Header("Left Icon Image Settings")]//左上に表示するアイコン
+    [SerializeField] private Transform _canbas;
+    [SerializeField] private GameObject _ImagePlayerIconPrefab;
+    private Dictionary<BaseWeaponSpawner, GameObject> _playerWeaponIcons;
+    private Dictionary<ItemData, GameObject> _playerItemIcons;
+    private const int _playerIconStartX = 20;
+    private const int _playerIconStartY = -40;
+
+    [Header("Enemy Kill Count UI Settings")]
+    [SerializeField] Text _defeatedEnemyCountText;
+    public int _defeatedEnemyCount;
+
     public Vector2 _TileMapStart;
     public Vector2 _TileMapEnd;
     public Vector2 _WorldStart;
@@ -36,18 +57,39 @@ public class GameSceneDirector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //変数初期化
+        _playerWeaponIcons = new Dictionary<BaseWeaponSpawner, GameObject>();
+        _playerItemIcons = new Dictionary<ItemData, GameObject>();
         SetInitialPlayer();
         SetInitialMovementRange();
         _enemySpawnerController.Init(this, _tileMapCollider);
         _panelLevelUpController.Init(this);
+        _treasureChestController.Init(this);
+
+        //初期値
+        _treasureChestTimer = Random.Range(_treasureChestTimerMin, _treasureChestTimerMax);
+        _defeatedEnemyCount = -1;
+
+        dispPlayerIcon();
+
+        //倒した敵更新
+        AddDefeatedEnemy();
+
+        //TimeScaleリセット
+        SetEnabled();
 
         if (_playerController != null) return;
         _playerController = FindAnyObjectByType<PlayerController>();
+
+        
     }
 
     void Update()
     {
+        //ゲームタイマー更新
         UpdateGameTimer();
+        //宝箱生成
+        UpdateTreasureChestSpawner();
     }
 
     /// <summary>
@@ -160,6 +202,9 @@ public class GameSceneDirector : MonoBehaviour
         //アイテム追加
         _playerController.AddBonusData(bonusData);
 
+        //ステータス反映
+        dispPlayerIcon();
+
         //ゲーム再開
         SetEnabled();
     }
@@ -213,6 +258,121 @@ public class GameSceneDirector : MonoBehaviour
     //宝箱パネルを表示
     public void DispPanelTreasureChest()
     {
+        //ランダムアイテム
+        ItemData item = GetRandomItemData();
 
+        //データなし
+        if(null == item) return;
+
+        //パネル表示
+        _treasureChestController.DispPanel(item);
+        //ゲーム中断
+        SetEnabled(false);
+    }
+
+    //アイテムをランダムで返す
+    private ItemData GetRandomItemData()
+    {
+        if (1 > _treasureChestItemIds.Count) return null;
+
+        //抽選
+        int rnd = Random.Range(0, _treasureChestItemIds.Count);
+        return ItemSettings.Instance.Get(_treasureChestItemIds[rnd]);
+    }
+
+    //宝箱生成
+    private void UpdateTreasureChestSpawner()
+    {
+        //タイマー
+        _treasureChestTimer -= Time.deltaTime;
+        //タイマー未消化
+        if (0 < _treasureChestTimer) return;
+
+        //生成場所
+        float x = Random.Range(_WorldStart.x, _WorldEnd.x);
+        float y = Random.Range(_WorldStart.y, _WorldEnd.y);
+
+        //当たり判定のあるタイル上かどうか
+        if (Utils.IsColliderTile(_tileMapCollider, new Vector2(x, y))) return;
+
+        //生成
+        GameObject obj = Instantiate(_treasureChestPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        obj.GetComponent<TresureChestController>().Init(this);
+
+        //次のタイマーセット
+        _treasureChestTimer = Random.Range(_treasureChestTimerMin, _treasureChestTimerMax);
+    }
+
+    //プレイヤーアイコンセット
+    private void SetPlayerIcon(GameObject obj, Vector2 pos, Sprite icon, int count)
+    {
+        //画像
+        Transform image = obj.transform.Find("Icon Image");
+        image.GetComponent<Image>().sprite = icon;
+
+        //テキスト
+        Transform text = obj.transform.Find("Count Text");
+        text.GetComponent<TextMeshProUGUI>().text = "" + count;
+
+        //場所
+        obj.GetComponent<RectTransform>().anchoredPosition = pos;
+    }
+
+    //アイコンの表示を更新
+    private void dispPlayerIcon()
+    {
+        //武器アイコンの表示位置
+        float x = _playerIconStartX;
+        float y = _playerIconStartY;
+        float w = _ImagePlayerIconPrefab.GetComponent<RectTransform>().sizeDelta.x + 1;
+
+        foreach(var item in _playerController._weaponSpawner)
+        {
+            //作成済みのデータがあれば取得する
+            _playerWeaponIcons.TryGetValue(item, out GameObject obj);
+
+            //なければ作成する
+            if (!obj)
+            {
+                obj = Instantiate(_ImagePlayerIconPrefab, _canbas);
+                _playerWeaponIcons.Add(item, obj);
+            }
+
+            //アイコンセット
+            SetPlayerIcon(obj, new Vector2(x, y), item._weaponStats._icon, item._weaponStats.Lv);
+
+            //次の位置
+            x += w;
+        }
+
+        //アイテムアイコン表示位置
+        x = _playerIconStartX;
+        y = _playerIconStartY - w;
+
+        foreach(var item in _playerController._itemDatas)
+        {
+            //作成済みのデータがあれば取得する
+            _playerItemIcons.TryGetValue(item.Key, out GameObject obj);
+
+            //なければ作成する
+            if (!obj)
+            {
+                obj = Instantiate(_ImagePlayerIconPrefab, _canbas);
+                _playerItemIcons.Add(item.Key, obj);
+            }
+
+            //アイコンセット
+            SetPlayerIcon(obj, new Vector2(x, y), item.Key.Icon, item.Value);
+
+            //次の位置
+            x += w;
+        }
+    }
+
+    //倒した敵をカウント
+    public void AddDefeatedEnemy()
+    {
+        _defeatedEnemyCount++;
+        _defeatedEnemyCountText.text = "" + _defeatedEnemyCount;
     }
 }

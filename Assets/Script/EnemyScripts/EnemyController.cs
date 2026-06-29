@@ -197,6 +197,7 @@ public class EnemyController : MonoBehaviour
 
         if(0 > _characterStats.HP)
         {
+            _sceneDirector.AddDefeatedEnemy();
             SetDead();
         }
 
