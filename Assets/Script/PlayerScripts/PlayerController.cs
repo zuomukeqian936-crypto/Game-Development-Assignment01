@@ -192,16 +192,29 @@ public class PlayerController : MonoBehaviour
 
         if (0 > _characterStats.HP)
         {
-            //操作できないようにする
             SetEnabled(false);
 
-            //アニメーション
-            transform.DOScale(new Vector2(5, 0), 2).SetUpdate(true)
-                .OnComplete(() =>
-                {
-                    SceneManager.LoadScene("ResultScene");
-                });
+            Sequence seq = DOTween.Sequence();
+
+            seq.Append(transform.DOScale(new Vector2(5, 0), 2))
+               .Join(GetComponent<SpriteRenderer>().DOFade(0f, 2))
+               .SetUpdate(false)
+               .OnComplete(() =>
+               {
+                   SceneManager.LoadScene("ResultScene");
+               });
         }
+        //{
+        //    //操作できないようにする
+        //    SetEnabled(false);
+
+        //    //アニメーション
+        //    transform.DOScale(new Vector2(5, 0), 2).SetUpdate(true)
+        //        .OnComplete(() =>
+        //        {
+        //            SceneManager.LoadScene("ResultScene");
+        //        });
+        //}
 
         if (0 > _characterStats.HP) _characterStats.HP = 0;
         SetSliderHP();

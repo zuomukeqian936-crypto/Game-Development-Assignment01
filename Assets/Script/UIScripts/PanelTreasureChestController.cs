@@ -75,6 +75,9 @@ public class PanelTreasureChestController : MonoBehaviour
         Utils.SetAlpha(_imageBackFX, 0);
         Utils.SetAlpha(_imageBackFXShiny, 0);
 
+        //ボタンを選択状態にする
+        _buttonOpen.Select();
+
         //パネル本体
         gameObject.SetActive(true);
     }
@@ -169,7 +172,10 @@ public class PanelTreasureChestController : MonoBehaviour
         );
 
         //閉じるボタンと子オブジェクトをフェードイン
-        seq.Append(_buttonClose.image.DOFade(1, fxDuration));
+        seq.Append(
+            _buttonClose.image.DOFade(1, fxDuration)
+            .OnComplete(() => _buttonClose.Select())
+            );
 
         foreach(var item in _buttonClose.GetComponentsInChildren<Graphic>())
         {
