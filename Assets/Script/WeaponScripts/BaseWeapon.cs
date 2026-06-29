@@ -8,7 +8,7 @@ public class BaseWeapon : MonoBehaviour
 
     protected Rigidbody2D _rb2D;
     protected Vector2 _forward; //方向
-    
+
     //初期化
     public void Init(BaseWeaponSpawner spawner, Vector2 forward)
     {
@@ -18,7 +18,7 @@ public class BaseWeapon : MonoBehaviour
         this._rb2D = GetComponent<Rigidbody2D>();
 
         //生成時間があれば設定する
-        if(-1 < _weaponSpawnerStats.AliveTime)
+        if (-1 < _weaponSpawnerStats.AliveTime)
         {
             Destroy(gameObject, _weaponSpawnerStats.AliveTime);
         }

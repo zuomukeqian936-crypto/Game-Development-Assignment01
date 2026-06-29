@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -17,6 +18,7 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] public PlayerController _playerController;
     [SerializeField] private PanelLevelUpController _panelLevelUpController;
     [SerializeField] private PanelTreasureChestController _treasureChestController;
+    private ResultSceneDirector _resultSceneDirector;
 
     [Header("Timer Settings")]
     [SerializeField] private Text _textTimer;
@@ -50,6 +52,9 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] Text _defeatedEnemyCountText;
     public int _defeatedEnemyCount;
 
+    [Header("Finish Time")]
+    [SerializeField] private float _gameOverTime;
+
     public Vector2 _TileMapStart;
     public Vector2 _TileMapEnd;
     public Vector2 _WorldStart;
@@ -65,6 +70,11 @@ public class GameSceneDirector : MonoBehaviour
         _enemySpawnerController.Init(this, _tileMapCollider);
         _panelLevelUpController.Init(this);
         _treasureChestController.Init(this);
+
+        if(_resultSceneDirector == null)
+        {
+            _resultSceneDirector = FindAnyObjectByType<ResultSceneDirector>();
+        }
 
         //初期値
         _treasureChestTimer = Random.Range(_treasureChestTimerMin, _treasureChestTimerMax);
@@ -90,6 +100,11 @@ public class GameSceneDirector : MonoBehaviour
         UpdateGameTimer();
         //宝箱生成
         UpdateTreasureChestSpawner();
+
+        if(_gameTimer > _gameOverTime)
+        {
+            SceneManager.LoadScene("ResultScene");
+        }
     }
 
     /// <summary>

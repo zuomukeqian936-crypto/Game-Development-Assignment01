@@ -1,9 +1,11 @@
+using DG.Tweening;
 using Dreamteck;
 using NUnit.Framework;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -190,7 +192,15 @@ public class PlayerController : MonoBehaviour
 
         if (0 > _characterStats.HP)
         {
+            //操作できないようにする
+            SetEnabled(false);
 
+            //アニメーション
+            transform.DOScale(new Vector2(5, 0), 2).SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    SceneManager.LoadScene("ResultScene");
+                });
         }
 
         if (0 > _characterStats.HP) _characterStats.HP = 0;
