@@ -76,6 +76,7 @@ public class EnemyController : MonoBehaviour
         Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
         _forward = dir;
 
+        
         _state = State.Alive;
      
     }

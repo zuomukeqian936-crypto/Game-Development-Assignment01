@@ -154,6 +154,7 @@ public class PanelGameOverController : MonoBehaviour
             .OnComplete(() =>
             {
                 _buttonDown.onClick.AddListener(_resultSceneDirector.LoadSceneTitle);
+                _buttonDown.Select();
             }));
 
         foreach(var item in _buttonDown.GetComponentsInChildren<Graphic>())

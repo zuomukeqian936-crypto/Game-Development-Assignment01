@@ -88,6 +88,8 @@ public class GameSceneDirector : MonoBehaviour
         //TimeScaleリセット
         SetEnabled();
 
+        //SoundManager.Instance.PlayBGM(0);
+
         if (_playerController != null) return;
         _playerController = FindAnyObjectByType<PlayerController>();
 
