@@ -1,40 +1,37 @@
 fileFormatVersion: 2
-guid: 6c029df470b7ab448b9a059f86a61ee2
+guid: ffb39dda368dbf941b469266bc1b2f25
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -964824239653993824
-    second: skeleton_0
+      213: -1516577087596727189
+    second: skeleton_3_0
   - first:
-      213: -3264722998049715623
-    second: skeleton_1
+      213: 3197984153780711556
+    second: skeleton_3_1
   - first:
-      213: 1664357772287024801
-    second: skeleton_2
+      213: 6992488814739955936
+    second: skeleton_3_2
   - first:
-      213: -1861396428348373837
-    second: skeleton_3
+      213: -5757655356080320226
+    second: skeleton_3_3
   - first:
-      213: 770891633333027474
-    second: skeleton_4
+      213: 1174678181005291837
+    second: skeleton_3_4
   - first:
-      213: -8664327905045170009
-    second: skeleton_5
+      213: -3373235551196450940
+    second: skeleton_3_5
   - first:
-      213: -7423335518844729702
-    second: skeleton_6
+      213: 6273288281925460587
+    second: skeleton_3_6
   - first:
-      213: 7269522917121967659
-    second: skeleton_7
+      213: 1052354451619186286
+    second: skeleton_3_7
   - first:
-      213: 7901955918156383551
-    second: skeleton_8
+      213: 545274653292551413
+    second: skeleton_3_8
   - first:
-      213: -1242360182464875364
-    second: skeleton_9
-  - first:
-      213: 3372163455729612445
-    second: skeleton_10
+      213: 8353041492457314292
+    second: skeleton_3_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:

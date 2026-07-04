@@ -41,12 +41,30 @@ TextureImporter:
   - first:
       213: 5896947172384964968
     second: skeleton_2_12
+  - first:
+      213: 6180327778054799967
+    second: skeleton_2_13
+  - first:
+      213: 4113518497217868416
+    second: skeleton_2_14
+  - first:
+      213: -3784426721099558156
+    second: skeleton_2_15
+  - first:
+      213: 2739486939424544765
+    second: skeleton_2_16
+  - first:
+      213: 9057024547415840798
+    second: skeleton_2_17
+  - first:
+      213: 5457741179315159618
+    second: skeleton_2_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -91,7 +109,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
   textureShape: 1
