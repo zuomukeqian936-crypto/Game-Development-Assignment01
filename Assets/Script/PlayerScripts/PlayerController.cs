@@ -204,17 +204,17 @@ public class PlayerController : MonoBehaviour
                    SceneManager.LoadScene("ResultScene");
                });
         }
-        //{
-        //    //操作できないようにする
-        //    SetEnabled(false);
+        {
+            //操作できないようにする
+            SetEnabled(false);
 
-        //    //アニメーション
-        //    transform.DOScale(new Vector2(5, 0), 2).SetUpdate(true)
-        //        .OnComplete(() =>
-        //        {
-        //            SceneManager.LoadScene("ResultScene");
-        //        });
-        //}
+            //アニメーション
+            transform.DOScale(new Vector2(5, 0), 2).SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    SceneManager.LoadScene("ResultScene");
+                });
+        }
 
         if (0 > _characterStats.HP) _characterStats.HP = 0;
         SetSliderHP();
