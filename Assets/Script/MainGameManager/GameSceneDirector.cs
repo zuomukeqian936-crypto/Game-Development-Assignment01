@@ -84,7 +84,7 @@ public class GameSceneDirector : MonoBehaviour
         dispPlayerIcon();
 
         //倒した敵更新
-        AddDefeatedEnemy();
+        //AddDefeatedEnemy();
 
         //TimeScaleリセット
         SetEnabled();
@@ -390,9 +390,9 @@ public class GameSceneDirector : MonoBehaviour
     }
 
     //倒した敵をカウント
-    public void AddDefeatedEnemy()
-    {
-        _defeatedEnemyCount++;
-        _defeatedEnemyCountText.text = "" + _defeatedEnemyCount;
-    }
+    //public void AddDefeatedEnemy()
+    //{
+    //    _defeatedEnemyCount++;
+    //    _defeatedEnemyCountText.text = "" + _defeatedEnemyCount;
+    //}
 }

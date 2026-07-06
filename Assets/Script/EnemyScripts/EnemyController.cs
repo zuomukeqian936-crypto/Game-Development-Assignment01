@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -9,9 +10,10 @@ public class EnemyController : MonoBehaviour
         Dead,
     }
 
-    [Header("References")]
+   
     public CharacterStats _characterStats;
-    [SerializeField] private GameSceneDirector _sceneDirector;
+    private GameSceneDirector _sceneDirector;
+    private ScoreManager _scoreManager;
 
     [Header("Enemy Attack Cool Down Time")]
     private float _maxCoolDownTime = 0.5f;
@@ -33,7 +35,15 @@ public class EnemyController : MonoBehaviour
 
     public Rigidbody2D _rb2D;
 
-    
+    public object UnitySystem { get; private set; }
+
+    private void Awake()
+    {
+        _scoreManager = FindAnyObjectByType<ScoreManager>();
+    }
+
+
+
     void Update()
     {
         UpdateTimer();
@@ -50,7 +60,7 @@ public class EnemyController : MonoBehaviour
 
         _rb2D = GetComponent<Rigidbody2D>();
 
-        float random = Random.Range(_minValue, _maxValue);
+        float random = UnityEngine.Random.Range(_minValue, _maxValue);
         float Speed = 1 / _characterStats.MoveSpeed * random;
 
         //サイズ
@@ -62,7 +72,7 @@ public class EnemyController : MonoBehaviour
 
         //回転
         float addz = _rotation;
-        float z = Random.Range(-addz, addz);
+        float z = UnityEngine.Random.Range(-addz, addz);
 
         Vector3 rotation = transform.rotation.eulerAngles;
         rotation.z = z;
@@ -75,8 +85,7 @@ public class EnemyController : MonoBehaviour
         PlayerController plaeyr = _sceneDirector._playerController;
         Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
         _forward = dir;
-
-        
+     
         _state = State.Alive;
      
     }
@@ -148,6 +157,8 @@ public class EnemyController : MonoBehaviour
             _sceneDirector.CreateXP(this);
         }
 
+        _scoreManager.EnemySelection(_characterStats);
+
         _state = State.Dead;
     }
 
@@ -198,7 +209,7 @@ public class EnemyController : MonoBehaviour
 
         if(0 > _characterStats.HP)
         {
-            _sceneDirector.AddDefeatedEnemy();
+            //_sceneDirector.AddDefeatedEnemy();
             SetDead();
         }
 

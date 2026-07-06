@@ -7465,7 +7465,7 @@ GameObject:
   - component: {fileID: 556447559}
   - component: {fileID: 556447558}
   m_Layer: 5
-  m_Name: Defeated Enemy Text
+  m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7538,7 +7538,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00000
+  m_Text: '0
+
+'
 --- !u!222 &556447560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18418,8 +18420,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1890797352}
   - component: {fileID: 1890797351}
-  - component: {fileID: 1890797353}
   - component: {fileID: 1890797354}
+  - component: {fileID: 1890797355}
   m_Layer: 0
   m_Name: GameSceneDirector
   m_TagString: Untagged
@@ -18486,19 +18488,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1890797353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890797350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d959f8cba015fb4ea99e3ad098ba75e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _playerController: {fileID: 0}
 --- !u!114 &1890797354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18511,12 +18500,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9224e94e95dbd74ea115edb0bc39137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _characterController: {fileID: 0}
-  _enemyScoreSettings: {fileID: 0}
-  _gameSceneDirector: {fileID: 0}
-  _scoreText: {fileID: 0}
+  _enemyScoreSettings: {fileID: 11400000, guid: e7147240203a3074a9f07a62e87e273b, type: 2}
+  _gameSceneDirector: {fileID: 1890797351}
+  _enemyController: {fileID: 0}
+  _scoreText: {fileID: 556447559}
   _earlyPhaseTime: 7
   _midPhaseTime: 14
+  _addScoreCooldown: 2
+--- !u!114 &1890797355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890797350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c215e18a4e35f3438a21d8a05a2b7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _scoreManager: {fileID: 1890797354}
+  _rankingMaxCount: 5
 --- !u!1 &1967363652
 GameObject:
   m_ObjectHideFlags: 0

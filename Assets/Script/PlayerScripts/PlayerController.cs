@@ -47,9 +47,6 @@ public class PlayerController : MonoBehaviour
     //追加したアイテムと個数
     public Dictionary<ItemData, int> _itemDatas;
 
-    //イベントシステム
-    public event Action OnSaveEnemyCount;
-
     string trigger = "";
 
     void Awake()
@@ -206,7 +203,7 @@ public class PlayerController : MonoBehaviour
                .OnComplete(() =>
                {
 
-                   OnSaveEnemyCount?.Invoke();
+                   RankingSaveData.Instance.SaveRankingData();
                    SceneManager.LoadScene("ResultScene");
                });
         }

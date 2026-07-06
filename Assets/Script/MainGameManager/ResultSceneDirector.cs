@@ -15,7 +15,7 @@ public class ResultSceneDirector : MonoBehaviour
         {
             _gameSceneDirector = FindAnyObjectByType<GameSceneDirector>();
         }
-        _panelGameOverController.Init(this);
+        //_panelGameOverController.Init(this);
     }
 
 
