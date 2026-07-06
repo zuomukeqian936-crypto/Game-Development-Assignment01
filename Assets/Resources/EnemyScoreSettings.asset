@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b30748c40b9c5548821022892a1fa5b, type: 3}
+  m_Name: EnemyScoreSettings
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyScoreSettings
+  BatScore: 5
+  SlimeScore: 10
+  ZombieScore: 20
+  GoblinScore: 30
+  SkeletonScore: 40
+  VampireScore: 50
+  BossScore: 100
+  EarlyScore: 3.5
+  MidScore: 5.7
+  LastScore: 7.3

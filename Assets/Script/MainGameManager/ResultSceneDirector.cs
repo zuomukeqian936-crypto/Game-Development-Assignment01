@@ -18,17 +18,19 @@ public class ResultSceneDirector : MonoBehaviour
         _panelGameOverController.Init(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //タイトルへ
     public void LoadSceneTitle()
     {
         DOTween.KillAll();
         SceneManager.LoadScene("TitleScene");
+    }
+
+    //メイン画面へ
+    public void LoadMainScenen()
+    {
+        DOTween.KillAll();
+        SceneManager.LoadScene("MainScene");
     }
 
     //ゲームオーバーパネルを表示

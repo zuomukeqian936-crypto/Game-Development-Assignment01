@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Dreamteck;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -45,6 +46,9 @@ public class PlayerController : MonoBehaviour
 
     //追加したアイテムと個数
     public Dictionary<ItemData, int> _itemDatas;
+
+    //イベントシステム
+    public event Action OnSaveEnemyCount;
 
     string trigger = "";
 
@@ -201,6 +205,8 @@ public class PlayerController : MonoBehaviour
                .SetUpdate(false)
                .OnComplete(() =>
                {
+
+                   OnSaveEnemyCount?.Invoke();
                    SceneManager.LoadScene("ResultScene");
                });
         }
@@ -370,7 +376,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //抽選
-        int rnd = Random.Range(0, usableIds.Count);
+        int rnd = UnityEngine.Random.Range(0, usableIds.Count);
         int id = usableIds[rnd];
 
         //装備済みなら次のレベルのデータ

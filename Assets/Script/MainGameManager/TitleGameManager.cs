@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Spine.Unity;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -73,7 +74,7 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     public void OnClickGameStartButton()
     {
-        
+        SceneManager.LoadScene("MainScene");
     }
 
 }

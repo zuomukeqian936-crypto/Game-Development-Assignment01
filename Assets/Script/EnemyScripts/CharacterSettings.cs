@@ -1,3 +1,4 @@
+using Dreamteck;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,6 +66,8 @@ public class CharacterSettings : ScriptableObject
     }
 
 }
+
+
 public enum MoveType
 {
     TargetPlayer,

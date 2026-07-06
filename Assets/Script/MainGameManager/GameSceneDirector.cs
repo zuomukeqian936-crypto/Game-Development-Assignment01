@@ -16,6 +16,7 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] private GameObject _prefabDamageText;
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
     [SerializeField] public PlayerController _playerController;
+    [SerializeField] private PlayerHPBarController _playerHPBarController;
     [SerializeField] private PanelLevelUpController _panelLevelUpController;
     [SerializeField] private PanelTreasureChestController _treasureChestController;
     private ResultSceneDirector _resultSceneDirector;
@@ -179,6 +180,8 @@ public class GameSceneDirector : MonoBehaviour
         //プレイヤー作成
         int playerId = 0;
         _playerController = CharacterSettings.Instance.CreatePlayer(playerId, this, _enemySpawnerController, _levelText, _sliderHP, _sliderXP);
+
+        _playerHPBarController.Init();
     }
 
     //経験値取得
