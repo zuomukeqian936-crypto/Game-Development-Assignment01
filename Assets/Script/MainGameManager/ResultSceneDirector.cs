@@ -15,13 +15,13 @@ public class ResultSceneDirector : MonoBehaviour
     [SerializeField] private float _showRankingTime = 4f;
     
 
-    public bool IsShowingScore = false;
+    public bool _isShowingScore = false;
 
     private float _timer;
 
     void Update()
     {
-        if (!IsShowingScore) return;
+        if (!_isShowingScore) return;
 
         _timer += Time.deltaTime;
 
@@ -32,7 +32,8 @@ public class ResultSceneDirector : MonoBehaviour
         }
         else if( _timer < _showRankingTime)
         {
-            _rankingController.ShowRanking();
+            _isShowingScore = true;
+            StartCoroutine(_rankingController.ShowRanking());
         }
     }
 

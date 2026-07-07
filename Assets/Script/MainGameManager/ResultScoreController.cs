@@ -19,7 +19,7 @@ public class ResultScoreController : MonoBehaviour
     /// </summary>
     public void ShowMyScore()
     {
-        _scoreText.text = _saveData.MyScore.ToString("F0");
+        _scoreText.text = Mathf.Floor(_saveData.MyScore).ToString();
         _scoreText.gameObject.SetActive(true);
     }
 

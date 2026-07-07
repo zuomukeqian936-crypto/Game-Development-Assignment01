@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class RankingController : MonoBehaviour
     [Header("Ranking Text Settings")]
     [SerializeField] private Text[] placeTexts;   // 1〜5位の順位テキスト
     [SerializeField] private Text[] scoreTexts;   // 1～5位の順位テキスト
+
+    [Header("Show Ranking Wait Time"), Tooltip("次のランキングの表示時間")]
+    [SerializeField] private float _rankingWaitTime = 1f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,7 +37,7 @@ public class RankingController : MonoBehaviour
     /// <summary>
     /// SaveData のランキングを UI に反映
     /// </summary>
-    public void ShowRanking()
+    public IEnumerator ShowRanking()
     {
         var scores = saveData.RankingScoreList;
 
@@ -47,8 +51,8 @@ public class RankingController : MonoBehaviour
             scoreTexts[i].gameObject.SetActive(true);
 
             scoreTexts[i].text = scores[i].ToString();
-        }
 
-        _resultSceneDirector.IsShowingScore = true;
+            yield return new WaitForSeconds(_rankingWaitTime);
+        }
     }
 }

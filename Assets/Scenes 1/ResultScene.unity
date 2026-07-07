@@ -10992,8 +10992,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _resultSceneDirector: {fileID: 1610800923}
   saveData:
-    RankingScoreList: []
-    MyScore: 0
+    RankingScoreList:
+    - 30
+    - 302
+    - 19
+    - 200
+    MyScore: 200
   placeTexts:
   - {fileID: 1109865096}
   - {fileID: 120366838}
@@ -11006,6 +11010,7 @@ MonoBehaviour:
   - {fileID: 169961455}
   - {fileID: 2077652914}
   - {fileID: 2053475746}
+  _rankingWaitTime: 1
 --- !u!1 &925964285
 GameObject:
   m_ObjectHideFlags: 0
@@ -22006,7 +22011,7 @@ MonoBehaviour:
   _invisibleScoreTime: 1
   _showMyScoreTime: 3
   _showRankingTime: 4
-  IsShowingScore: 1
+  _isShowingScore: 0
 --- !u!4 &1610800924
 Transform:
   m_ObjectHideFlags: 0
