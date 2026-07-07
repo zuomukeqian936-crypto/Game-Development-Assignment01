@@ -37,6 +37,7 @@ public static class SaveManager
 [System.Serializable]
 public class SaveData
 {
-    public List<float> HighScoreList;
+    public List<float> RankingScoreList = new List<float>();
+    public float MyScore;
 }
 

@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RankingSaveData : MonoBehaviour
 {
@@ -30,12 +31,26 @@ public class RankingSaveData : MonoBehaviour
     /// </summary>
     public void SaveRankingData()
     {
-        SaveData data = new SaveData();
+        SaveData data = SaveManager.Load();
 
-        data.HighScoreList.Add(_scoreManager.Score);
+        // データがなければ新規作成
+        if (data == null)
+        {
+            data = new SaveData();
+        }
+
+        data.RankingScoreList.Add(_scoreManager.Score);
+        data.MyScore = _scoreManager.Score;
 
         SaveManager.Save(data);
         Debug.Log("Ranking Data Saved");
+
+        foreach(var score in data.RankingScoreList)
+        {
+            Debug.Log(score);
+        }
+
+        SceneManager.LoadScene("ResultScene");
     }
 
 
@@ -61,13 +76,13 @@ public class RankingSaveData : MonoBehaviour
     {
         SaveData data = SaveManager.Load();
 
-        if (data.HighScoreList.Count <= _rankingMaxCount) return;
+        if (data.RankingScoreList.Count <= _rankingMaxCount) return;
 
         // 最も低いスコアを取得（List<float> なので Min() が使える）
-        float lowest = data.HighScoreList.Min();
+        float lowest = data.RankingScoreList.Min();
 
         // 削除
-        data.HighScoreList.Remove(lowest);
+        data.RankingScoreList.Remove(lowest);
 
         SaveManager.Save(data);
     }

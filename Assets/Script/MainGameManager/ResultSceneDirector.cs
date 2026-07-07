@@ -1,23 +1,40 @@
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ResultSceneDirector : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PanelGameOverController _panelGameOverController;
-    private GameSceneDirector _gameSceneDirector;
+    [SerializeField] private ResultScoreController _resultScoreController;
+    [SerializeField] private RankingController _rankingController;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Show Score Time")]
+    [SerializeField] private float _invisibleScoreTime = 1f;
+    [SerializeField] private float _showMyScoreTime = 2f;
+    [SerializeField] private float _showRankingTime = 4f;
+    
+
+    public bool IsShowingScore = false;
+
+    private float _timer;
+
+    void Update()
     {
-        if(_gameSceneDirector == null)
-        {
-            _gameSceneDirector = FindAnyObjectByType<GameSceneDirector>();
-        }
-        //_panelGameOverController.Init(this);
-    }
+        if (!IsShowingScore) return;
 
+        _timer += Time.deltaTime;
+
+        if (_timer < _invisibleScoreTime) return;
+        else if (_timer < _showMyScoreTime)
+        {
+            _resultScoreController.ShowMyScore();
+        }
+        else if( _timer < _showRankingTime)
+        {
+            _rankingController.ShowRanking();
+        }
+    }
 
     //タイトルへ
     public void LoadSceneTitle()
@@ -31,13 +48,5 @@ public class ResultSceneDirector : MonoBehaviour
     {
         DOTween.KillAll();
         SceneManager.LoadScene("MainScene");
-    }
-
-    //ゲームオーバーパネルを表示
-    public void DispPanelGameOver()
-    {
-        //パネル表示
-        _panelGameOverController.DispPanel(_gameSceneDirector._playerController._weaponSpawner);
-        
     }
 }

@@ -106,7 +106,7 @@ public class GameSceneDirector : MonoBehaviour
 
         if(_gameTimer > _gameOverTime)
         {
-            SceneManager.LoadScene("ResultScene");
+            RankingSaveData.Instance.SaveRankingData();
         }
     }
 

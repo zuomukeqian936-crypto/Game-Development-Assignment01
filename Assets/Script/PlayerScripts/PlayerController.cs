@@ -191,7 +191,8 @@ public class PlayerController : MonoBehaviour
         //ダメージ表示
         _gameSceneDirector.DispDamage(gameObject, damage);
 
-        if (0 > _characterStats.HP)
+        //ゲームオーバー処理
+        if (_characterStats.HP <= 0)
         {
             SetEnabled(false);
 
@@ -199,23 +200,13 @@ public class PlayerController : MonoBehaviour
 
             seq.Append(transform.DOScale(new Vector2(5, 0), 2))
                .Join(GetComponent<SpriteRenderer>().DOFade(0f, 2))
-               .SetUpdate(false)
-               .OnComplete(() =>
-               {
-
-                   RankingSaveData.Instance.SaveRankingData();
-                   SceneManager.LoadScene("ResultScene");
-               });
-        }
-        {
-            //操作できないようにする
-            SetEnabled(false);
+               .SetUpdate(false);
 
             //アニメーション
             transform.DOScale(new Vector2(5, 0), 2).SetUpdate(true)
                 .OnComplete(() =>
                 {
-                    SceneManager.LoadScene("ResultScene");
+                    RankingSaveData.Instance.SaveRankingData();
                 });
         }
 
@@ -264,7 +255,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!collsiion.gameObject.TryGetComponent<EnemyController>(out var enemy)) return;
 
-        if (0 < _coolDownTimer) return;
+        if (_coolDownTimer > 0) return;
 
         enemy.Damage(_characterStats.Attack);
         _coolDownTimer = _maxCoolDownTime;
@@ -273,7 +264,7 @@ public class PlayerController : MonoBehaviour
     //タイマー更新処理
     private void UpdateTimer()
     {
-        if (0 < _coolDownTimer)
+        if (_coolDownTimer > 0)
         {
             _coolDownTimer -= Time.deltaTime;
         }

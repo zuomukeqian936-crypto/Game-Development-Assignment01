@@ -185,7 +185,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!collsiion.gameObject.TryGetComponent<PlayerController>(out var player)) return;
 
-        if (0 < _coolDownTimer) return;
+        if (_coolDownTimer > 0) return;
 
         if (State.Alive != _state) return;
 
@@ -207,7 +207,7 @@ public class EnemyController : MonoBehaviour
 
         _sceneDirector.DispDamage(gameObject, damage);
 
-        if(0 > _characterStats.HP)
+        if(_characterStats.HP <= 0)
         {
             //_sceneDirector.AddDefeatedEnemy();
             SetDead();
