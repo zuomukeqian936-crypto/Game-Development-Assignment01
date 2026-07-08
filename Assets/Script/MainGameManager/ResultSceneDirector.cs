@@ -21,7 +21,7 @@ public class ResultSceneDirector : MonoBehaviour
 
     void Update()
     {
-        if (!_isShowingScore) return;
+        if (_isShowingScore) return;
 
         _timer += Time.deltaTime;
 

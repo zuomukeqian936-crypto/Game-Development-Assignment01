@@ -6,7 +6,7 @@ public class RankingController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private ResultSceneDirector _resultSceneDirector;
-    [SerializeField] private SaveData saveData;
+    [SerializeField] private RankingSaveData _rankingSaveData;
 
     [Header("Ranking Text Settings")]
     [SerializeField] private Text[] placeTexts;   // 1〜5位の順位テキスト
@@ -23,7 +23,7 @@ public class RankingController : MonoBehaviour
     }
 
     /// <summary>
-    /// /// 初期化
+    /// /// UI初期化
     /// </summary>
     private void Init()
     {
@@ -39,7 +39,7 @@ public class RankingController : MonoBehaviour
     /// </summary>
     public IEnumerator ShowRanking()
     {
-        var scores = saveData.RankingScoreList;
+        var scores = _rankingSaveData.CurrentData.RankingScoreList;
 
         // ランキングを降順に並び替え
         scores.Sort();
@@ -50,9 +50,11 @@ public class RankingController : MonoBehaviour
             placeTexts[i].gameObject.SetActive(true);
             scoreTexts[i].gameObject.SetActive(true);
 
-            scoreTexts[i].text = scores[i].ToString();
+            scoreTexts[i].text = Mathf.Floor(scores[i]).ToString();
 
             yield return new WaitForSeconds(_rankingWaitTime);
         }
+
+        _rankingSaveData.DeleteRankingEntry();
     }
 }

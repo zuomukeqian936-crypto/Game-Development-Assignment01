@@ -1,5 +1,7 @@
 using DG.Tweening;
 using Spine.Unity;
+using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,8 +20,15 @@ public class TitleUIManager : MonoBehaviour
     [SerializeField] private Text _titleText;
     [SerializeField] private Text _gamePlayButtonText;
     [SerializeField] private GameObject _playerObject;
+    [SerializeField] private Image _backGroundImage;
+
+    [Header("Color Settings")]
+    [SerializeField] private Color _backGourndFadeInColor;
+    [SerializeField] private Color _backGroundFadeOutColor;
 
     [Header("Show Image Time")]
+    [SerializeField] private float _backgroundImageFadeInTime = 5f;
+    [SerializeField] private float _backgroundImageFadeOutTime = 3f;
     [SerializeField] private float _showTitleTextTime = 6f;
     [SerializeField] private float _showCharacterTime = 7f;
     [SerializeField] private float _showButtonTextTime = 8f;
@@ -40,6 +49,8 @@ public class TitleUIManager : MonoBehaviour
         _titleText.gameObject.SetActive(false);
         _gamePlayButtonText.gameObject.SetActive(false);
         _playerObject.SetActive(false);
+
+        HandleColorChange();
     }
 
     private void Update()
@@ -70,11 +81,32 @@ public class TitleUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ゲームスタートボタンクリック時の処理
+    /// フェードイン演出
+    /// </summary>
+    private void HandleColorChange()
+    {
+        _backGroundImage.DOColor(_backGourndFadeInColor, _backgroundImageFadeInTime)
+        .SetEase(Ease.InOutQuad);
+
+        StartCoroutine(SetFadeColor());
+    }
+
+    private IEnumerator SetFadeColor()
+    {
+        yield return new WaitForSeconds(_backgroundImageFadeInTime);
+        _backGroundImage.DOFade(0f, 0f);
+    }
+
+    /// <summary>
+    /// ゲームスタートボタンクリック時フェードアウトとシーン移動演出処理
     /// </summary>
     public void OnClickGameStartButton()
     {
-        SceneManager.LoadScene("MainScene");
+        _backGroundImage.DOFade(1f, _backgroundImageFadeOutTime)
+            .OnComplete(() =>
+            {
+                SceneManager.LoadScene("MainScene");
+            });
     }
 
 }

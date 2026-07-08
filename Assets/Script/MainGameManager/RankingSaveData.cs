@@ -11,10 +11,14 @@ public class RankingSaveData : MonoBehaviour
     [SerializeField] private int _rankingMaxCount = 5;
 
     public static RankingSaveData Instance { get; private set; }
-    
+
+    public SaveData CurrentData { get; private set; } //セーブデータの保存
+
     void Awake()
     {
         Instance = this;
+
+
     }
 
     void Start()
@@ -59,8 +63,8 @@ public class RankingSaveData : MonoBehaviour
     /// </summary>
     public void LoadRankingData()
     {
-        SaveData data = SaveManager.Load();
-        if (data == null)
+        CurrentData = SaveManager.Load();
+        if (CurrentData == null)
         {
             Debug.Log("No Save Data");
             return;
@@ -83,6 +87,9 @@ public class RankingSaveData : MonoBehaviour
 
         // 削除
         data.RankingScoreList.Remove(lowest);
+
+        Debug.Log($"{lowest}が削除されました");
+        Debug.Log(data.RankingScoreList.Count);
 
         SaveManager.Save(data);
     }

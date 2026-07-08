@@ -10991,13 +10991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _resultSceneDirector: {fileID: 1610800923}
-  saveData:
-    RankingScoreList:
-    - 30
-    - 302
-    - 19
-    - 200
-    MyScore: 200
+  _rankingSaveData: {fileID: 1610800925}
   placeTexts:
   - {fileID: 1109865096}
   - {fileID: 120366838}
@@ -11010,7 +11004,7 @@ MonoBehaviour:
   - {fileID: 169961455}
   - {fileID: 2077652914}
   - {fileID: 2053475746}
-  _rankingWaitTime: 1
+  _rankingWaitTime: 1.5
 --- !u!1 &925964285
 GameObject:
   m_ObjectHideFlags: 0
@@ -11194,9 +11188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544588d566fec484da7d7df6efdbd287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _saveData:
-    RankingScoreList: []
-    MyScore: 0
+  _rankingSaveData: {fileID: 1610800925}
   _scoreText: {fileID: 2026061311}
 --- !u!1 &975249900
 GameObject:
@@ -21987,6 +21979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610800924}
   - component: {fileID: 1610800923}
+  - component: {fileID: 1610800925}
   m_Layer: 0
   m_Name: ResultSceneDirector
   m_TagString: Untagged
@@ -22027,6 +22020,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610800925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610800922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c215e18a4e35f3438a21d8a05a2b7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RankingSaveData
+  _scoreManager: {fileID: 0}
+  _rankingMaxCount: 5
 --- !u!1 &1639798375
 GameObject:
   m_ObjectHideFlags: 0

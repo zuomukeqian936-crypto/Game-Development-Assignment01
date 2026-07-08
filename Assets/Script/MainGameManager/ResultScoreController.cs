@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ResultScoreController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private SaveData _saveData;
+    [SerializeField] private RankingSaveData _rankingSaveData;
 
     [Header("Score Text")]
     [SerializeField] private Text _scoreText;
@@ -19,9 +19,8 @@ public class ResultScoreController : MonoBehaviour
     /// </summary>
     public void ShowMyScore()
     {
-        _scoreText.text = Mathf.Floor(_saveData.MyScore).ToString();
+        _rankingSaveData.LoadRankingData();
+        _scoreText.text = Mathf.Floor(_rankingSaveData.CurrentData.MyScore).ToString();
         _scoreText.gameObject.SetActive(true);
-    }
-
-    
+    }    
 }

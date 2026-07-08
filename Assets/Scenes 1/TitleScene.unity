@@ -6630,8 +6630,8 @@ RectTransform:
   - {fileID: 971216444}
   - {fileID: 1479795520}
   - {fileID: 1121800681}
-  - {fileID: 1439396049}
   - {fileID: 1750579528}
+  - {fileID: 1439396049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6650,7 +6650,6 @@ GameObject:
   - component: {fileID: 971216444}
   - component: {fileID: 971216446}
   - component: {fileID: 971216445}
-  - component: {fileID: 971216447}
   m_Layer: 5
   m_Name: Back Image
   m_TagString: Untagged
@@ -6715,20 +6714,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971216443}
   m_CullTransparentMesh: 1
---- !u!114 &971216447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971216443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1634c8ca11ab1504ea33e8464cd95c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainCameraController
-  _backGourndFinishColor: {r: 0, g: 0, b: 0, a: 0}
-  _playerChengeColorTime: 5
 --- !u!1 &1006684601
 GameObject:
   m_ObjectHideFlags: 0
@@ -17327,6 +17312,11 @@ MonoBehaviour:
   _titleText: {fileID: 1121800682}
   _gamePlayButtonText: {fileID: 1750579534}
   _playerObject: {fileID: 1461902559}
+  _backGroundImage: {fileID: 971216445}
+  _backGourndFadeInColor: {r: 0, g: 0, b: 0, a: 0}
+  _backGroundFadeOutColor: {r: 0, g: 0, b: 0, a: 1}
+  _backgroundImageFadeInTime: 5
+  _backgroundImageFadeOutTime: 3
   _showTitleTextTime: 6
   _showCharacterTime: 7
   _showButtonTextTime: 8
