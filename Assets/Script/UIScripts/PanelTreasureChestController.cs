@@ -7,7 +7,7 @@ public class PanelTreasureChestController : MonoBehaviour
     [SerializeField] private Image _imageClose;
     [SerializeField] private Image _imageOpen;
     [SerializeField] private Image _imageItem;
-    [SerializeField] private Image _imageBackFX;
+    //[SerializeField] private Image _imageBackFX;
     [SerializeField] private Image _imageBackFXShiny;
     [SerializeField] private Button _buttonOpen;
     [SerializeField] private Button _buttonClose;
@@ -44,7 +44,7 @@ public class PanelTreasureChestController : MonoBehaviour
         _imageItem.rectTransform.anchoredPosition = imageItemInitPos;
         _imageClose.rectTransform.localScale = imageCloseInitScale;
         _imageClose.rectTransform.localEulerAngles = Vector3.zero;
-        _imageBackFX.rectTransform.anchoredPosition = itemTargetPos;
+       // _imageBackFX.rectTransform.anchoredPosition = itemTargetPos;
         _imageBackFXShiny.rectTransform.anchoredPosition = itemTargetPos;
 
         //アイテム画像
@@ -72,7 +72,7 @@ public class PanelTreasureChestController : MonoBehaviour
         Utils.SetAlpha(_buttonClose, 0);
 
         //演出
-        Utils.SetAlpha(_imageBackFX, 0);
+       // Utils.SetAlpha(_imageBackFX, 0);
         Utils.SetAlpha(_imageBackFXShiny, 0);
 
         //ボタンを選択状態にする
@@ -161,7 +161,7 @@ public class PanelTreasureChestController : MonoBehaviour
         seq.Join(image.DOAnchorPos(itemTargetPos, itemDuration));
 
         //演出フェードイン
-        seq.Append(_imageBackFX.DOFade(1, fxDuration));
+       // seq.Append(_imageBackFX.DOFade(1, fxDuration));
         seq.Join(_imageBackFXShiny.DOFade(0.8f, fxDuration));
 
         //説明フェードイン
@@ -186,7 +186,7 @@ public class PanelTreasureChestController : MonoBehaviour
         seq.Play().SetUpdate(true);
 
         //無限ループ系はシーケンスと別で動かす
-        DoRotatieLoops(_imageBackFX);
+       // DoRotatieLoops(_imageBackFX);
         DoRotatieLoops(_imageBackFXShiny, -1);
     }
 
@@ -194,7 +194,7 @@ public class PanelTreasureChestController : MonoBehaviour
     public void OnClickClose()
     {
         //ループ系を止める
-        _imageBackFX.DOKill();
+        //_imageBackFX.DOKill();
         _imageBackFXShiny.DOKill();
         //パネル非表示
         gameObject.SetActive(false);

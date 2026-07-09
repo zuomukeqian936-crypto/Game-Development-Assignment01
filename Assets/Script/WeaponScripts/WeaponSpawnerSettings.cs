@@ -57,6 +57,7 @@ public class WeaponSpawnerSettings : ScriptableObject
         WeaponSpawnerStats stats = Instance.Get(id, 1);
         //オブジェクト作成
         GameObject obj = Instantiate(stats._prefabSpawner, parent);
+
         //データセット
         BaseWeaponSpawner spawner = obj.GetComponent<BaseWeaponSpawner>();
         spawner.Init(enemySpawner, stats);
@@ -116,4 +117,7 @@ public class WeaponSpawnerStats : BaseStats
             }
         }
     }
+
+    //攻撃SE
+    public AudioClip AttackSE;
 }

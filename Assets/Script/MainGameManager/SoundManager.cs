@@ -1,51 +1,136 @@
-using NUnit.Framework;
+//using JetBrains.Annotations;
+//using NUnit.Framework;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//public class SoundManager : MonoBehaviour
+//{
+//    //シングルトン
+//    public static SoundManager Instance;
+
+//    //再生装置
+//    private AudioSource _audioSource;
+
+//    [Header("SE Prefab")]
+//    [SerializeField] private GameObject _sePrefab;
+
+//    [Header("SE Prefab Count")]
+//    [SerializeField] private int _initialSize = 20;
+//    private Queue<GameObject> _sePool = new Queue<GameObject>(); 
+
+//    private void Awake()
+//    {
+//        Instance = this;
+
+//        for(int i = 0; i < _initialSize; i++)
+//        {
+//            GameObject seObject = Instantiate(_sePrefab);
+//            _sePool.Enqueue(seObject);
+//        }
+//    }
+
+//    //SEPoolの在庫確認処理
+//    public GameObject GetSE()
+//    {
+//        if(_sePool.Count > 0)
+//        {
+//            GameObject seObject = _sePool.Dequeue();
+//            seObject.SetActive(false);
+//            return seObject;
+//        }
+//        else
+//        {
+//            GameObject seObject = Instantiate(_sePrefab);
+//            seObject.SetActive(true);
+//            return seObject;
+//        }
+//    }
+
+//    /// <summary>
+//    /// SEPoolに戻す処理
+//    /// 
+//    /// </summary>
+//    /// <param name="seObject"></param>
+//    public void Return(GameObject seObject)
+//    {
+//        seObject.SetActive(false);
+//        _sePool.Enqueue(seObject);
+//    }
+
+//    //SE再生
+//    public void PlaySE(AudioClip)
+//    {
+//    }
+//}
+
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    //シングルトン
     public static SoundManager Instance;
 
-    //再生装置
-    private AudioSource _audioSource;
+    [Header("SE Prefab")]
+    [SerializeField] private GameObject _sePrefab;
 
-    [SerializeField] private List<AudioClip> _audioClipsBGM;
-    [SerializeField] private List<AudioClip> _audioClipSE;
+    [Header("SE Prefab Count")]
+    [SerializeField] private int _initialSize = 20;
+
+    private Queue<GameObject> _sePool = new Queue<GameObject>();
 
     private void Awake()
     {
-        //セット
-        if(null == Instance)
+        Instance = this;
+
+        // 初期プール生成
+        for (int i = 0; i < _initialSize; i++)
         {
-            //オーディオ設定
-            _audioSource = GetComponent<AudioSource>();
-            _audioSource.loop = true;
-
-            //オブジェクトをセットする
-            Instance = this;
-
-            //シーンをまたいでもオブジェクトを削除しない
-            DontDestroyOnLoad(this.gameObject);
+            GameObject seObject = Instantiate(_sePrefab);
+            seObject.SetActive(false);
+            _sePool.Enqueue(seObject);
         }
+    }
 
-        //２回目以降に生成されたオブジェクトを削除する
+    // SE をプールから取得
+    private GameObject GetSE()
+    {
+        if (_sePool.Count > 0)
+        {
+            GameObject seObject = _sePool.Dequeue();
+            seObject.SetActive(true);
+            return seObject;
+        }
         else
         {
-            Destroy(this.gameObject);
+            // 足りない場合は追加生成
+            GameObject seObject = Instantiate(_sePrefab);
+            seObject.SetActive(true);
+            return seObject;
         }
     }
 
-    //BGM再生
-    public void PlayBGM(int index)
+    // SE をプールに返却
+    public void Return(GameObject seObject)
     {
-        _audioSource.clip = _audioClipsBGM[index];
-        _audioSource.Play();
+        seObject.SetActive(false);
+        _sePool.Enqueue(seObject);
     }
 
-    //SE再生
-    public void PlaySE(int index)
+    /// <summary>
+    /// SE 再生（プール版）
+    /// </summary>
+    public void PlaySE(AudioClip clip)
     {
-        _audioSource.PlayOneShot(_audioClipSE[index]);
+        GameObject seObj = GetSE();
+        AudioSource audio = seObj.GetComponent<AudioSource>();
+
+        audio.PlayOneShot(clip);
+
+        DOVirtual.DelayedCall(clip.length, () =>
+        {
+            Return(seObj);
+        });
     }
 }
+

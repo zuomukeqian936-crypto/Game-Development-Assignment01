@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameSceneDirector _gameSceneDirector;
     [SerializeField] public CharacterStats _characterStats;
     [SerializeField] private EnemySpawnerController _enemySpawnerController;
+    [SerializeField] private WeaponSpawnerStats _weaponSpawnerStats;
 
     private Slider _sliderHP;
     private Slider _sliderXP;
@@ -248,7 +249,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// プレイヤーへ攻撃する処理
+    /// 敵へ攻撃する処理
     /// </summary>
     /// <param name="collsiion"></param>
     private void AttackEnemy(Collision2D collsiion)
@@ -256,10 +257,11 @@ public class PlayerController : MonoBehaviour
         if (!collsiion.gameObject.TryGetComponent<EnemyController>(out var enemy)) return;
 
         if (_coolDownTimer > 0) return;
-
         enemy.Damage(_characterStats.Attack);
         _coolDownTimer = _maxCoolDownTime;
     }
+
+    
 
     //タイマー更新処理
     private void UpdateTimer()

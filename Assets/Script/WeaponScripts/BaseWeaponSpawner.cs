@@ -9,6 +9,8 @@ public class BaseWeaponSpawner : MonoBehaviour
     //武器のプレハブ
     [SerializeField] private  GameObject _prefabWeapon;
 
+    private SoundManager _soundManager;
+
     public WeaponSpawnerStats _weaponStats;
 
     public float _totalDamage; //与えた総ダメージ
@@ -26,7 +28,12 @@ public class BaseWeaponSpawner : MonoBehaviour
     {
         _weapons = new List<BaseWeapon>();
         this._enemySpawner = enemySpawner;
-        this._weaponStats = weaponStats;    
+        this._weaponStats = weaponStats; 
+        
+        if(_soundManager == null)
+        {
+            _soundManager = FindAnyObjectByType<SoundManager>();
+        }
     }
 
     //稼働タイマー
@@ -45,6 +52,13 @@ public class BaseWeaponSpawner : MonoBehaviour
         }
         //生成
         GameObject obj = Instantiate(_prefabWeapon, position, _prefabWeapon.transform.rotation, parent);
+        
+        //音声生成処理
+        if(_weaponStats.AttackSE != null)
+        {
+            SetDamageSE();
+        }
+        
 
         //共通データセット
         BaseWeapon weapon = obj.GetComponent<BaseWeapon>();
@@ -139,5 +153,13 @@ public class BaseWeaponSpawner : MonoBehaviour
         }
 
         _weaponStats.Lv = lv + 1;
+    }
+
+    /// <summary>
+    /// 攻撃音声処理
+    /// </summary>
+    private void SetDamageSE()
+    {
+        SoundManager.Instance.PlaySE(_weaponStats.AttackSE);
     }
 }

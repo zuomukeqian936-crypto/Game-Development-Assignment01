@@ -33,6 +33,7 @@ MonoBehaviour:
     _spawnCount: 2
     _spawnTimerMin: 2
     _spawnTimerMax: 2
+    AttackSE: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
   - Title: "\u65A7"
     Id: 1
     Lv: 1
@@ -53,6 +54,7 @@ MonoBehaviour:
     _spawnCount: 2
     _spawnTimerMin: 3
     _spawnTimerMax: 4
+    AttackSE: {fileID: 0}
   - Title: "\u77E2"
     Id: 2
     Lv: 1
@@ -73,6 +75,7 @@ MonoBehaviour:
     _spawnCount: 2
     _spawnTimerMin: 2
     _spawnTimerMax: 3
+    AttackSE: {fileID: 0}
   - Title: "\u30CA\u30A4\u30D5"
     Id: 3
     Lv: 1
@@ -93,6 +96,7 @@ MonoBehaviour:
     _spawnCount: 3
     _spawnTimerMin: 3
     _spawnTimerMax: 3
+    AttackSE: {fileID: 0}
   - Title: "\u30D6\u30FC\u30E1\u30E9\u30F3"
     Id: 4
     Lv: 1
@@ -113,6 +117,7 @@ MonoBehaviour:
     _spawnCount: 1
     _spawnTimerMin: 2
     _spawnTimerMax: 3
+    AttackSE: {fileID: 0}
   - Title: "\u30B7\u30FC\u30EB\u30C9"
     Id: 5
     Lv: 1
@@ -133,6 +138,7 @@ MonoBehaviour:
     _spawnCount: 3
     _spawnTimerMin: 10
     _spawnTimerMax: 10
+    AttackSE: {fileID: 0}
   - Title: "\u624B\u88CF\u5263"
     Id: 6
     Lv: 1
@@ -153,6 +159,7 @@ MonoBehaviour:
     _spawnCount: 4
     _spawnTimerMin: 0.5
     _spawnTimerMax: 2
+    AttackSE: {fileID: 0}
   - Title: "\u5186\u6708\u8F2A"
     Id: 7
     Lv: 1
@@ -173,6 +180,7 @@ MonoBehaviour:
     _spawnCount: 1
     _spawnTimerMin: 5
     _spawnTimerMax: 5
+    AttackSE: {fileID: 0}
   - Title: "\u30DC\u30E0"
     Id: 8
     Lv: 1
@@ -193,3 +201,4 @@ MonoBehaviour:
     _spawnCount: 1
     _spawnTimerMin: 5
     _spawnTimerMax: 5
+    AttackSE: {fileID: 0}
