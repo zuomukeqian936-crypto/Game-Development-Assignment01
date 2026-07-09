@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2374644640615314492}
   - component: {fileID: 5874143407040521295}
   - component: {fileID: 7158550028255397841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: zonbe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,6 @@ MonoBehaviour:
     UsableWeaponIds: 
     UsableweaponMax: 0
     MoveType: 0
-  _sceneDirector: {fileID: 0}
   _minValue: 0.8
   _maxValue: 1.2
   _size: 0.8

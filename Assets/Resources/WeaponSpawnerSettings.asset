@@ -33,7 +33,7 @@ MonoBehaviour:
     _spawnCount: 2
     _spawnTimerMin: 2
     _spawnTimerMax: 2
-    AttackSE: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
+    AttackSE: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
   - Title: "\u65A7"
     Id: 1
     Lv: 1
@@ -201,4 +201,4 @@ MonoBehaviour:
     _spawnCount: 1
     _spawnTimerMin: 5
     _spawnTimerMax: 5
-    AttackSE: {fileID: 0}
+    AttackSE: {fileID: 8300000, guid: 6344d7225156eed408b37beb2a8ad115, type: 3}

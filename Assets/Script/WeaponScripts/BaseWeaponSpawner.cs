@@ -54,10 +54,10 @@ public class BaseWeaponSpawner : MonoBehaviour
         GameObject obj = Instantiate(_prefabWeapon, position, _prefabWeapon.transform.rotation, parent);
         
         //音声生成処理
-        if(_weaponStats.AttackSE != null)
-        {
-            SetDamageSE();
-        }
+        //if(_weaponStats.AttackSE != null)
+        //{
+        //    SetDamageSE();
+        //}
         
 
         //共通データセット
@@ -158,8 +158,8 @@ public class BaseWeaponSpawner : MonoBehaviour
     /// <summary>
     /// 攻撃音声処理
     /// </summary>
-    private void SetDamageSE()
-    {
-        SoundManager.Instance.PlaySE(_weaponStats.AttackSE);
-    }
+    //private void SetDamageSE()
+    //{
+    //    SoundManager.Instance.PlaySE(_weaponStats.AttackSE);
+    //}
 }

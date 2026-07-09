@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8372894689461446718}
   - component: {fileID: 5720114599224610069}
   - component: {fileID: 1071997176351387002}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zombe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7690810008874099761, guid: ffe3bced3327f11408a48fc82ef93809, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

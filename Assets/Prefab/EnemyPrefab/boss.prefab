@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1386929594120533817}
   - component: {fileID: 5571693978553508799}
   - component: {fileID: 3270477094789354813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -190,9 +190,9 @@ MonoBehaviour:
     UsableWeaponIds: 
     UsableweaponMax: 0
     MoveType: 0
-  _sceneDirector: {fileID: 0}
-  _player: {fileID: 0}
   _minValue: 0.8
   _maxValue: 1.2
   _size: 0.8
   _rotation: 10
+  _state: 0
+  _rb2D: {fileID: 0}
