@@ -84,7 +84,6 @@ public class EnemyController : MonoBehaviour
         //進む方向
         PlayerController plaeyr = _sceneDirector._playerController;
         Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
-        _forward = dir;
      
         _state = State.Alive;
      
@@ -100,7 +99,7 @@ public class EnemyController : MonoBehaviour
         if (MoveType.TargetPlayer == _characterStats.MoveType)
         {
             Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
-            _forward = dir.normalized;  
+            _forward = dir.normalized;
         }
 
         MoveEnemy();
@@ -162,17 +161,17 @@ public class EnemyController : MonoBehaviour
         _state = State.Dead;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         AttackPlayer(collision);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         AttackPlayer(collision);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         
     }
@@ -181,7 +180,7 @@ public class EnemyController : MonoBehaviour
     /// プレイヤーへ攻撃する処理
     /// </summary>
     /// <param name="collsiion"></param>
-    private void AttackPlayer(Collision2D collsiion)
+    private void AttackPlayer(Collider2D collsiion)
     {
         if (!collsiion.gameObject.TryGetComponent<PlayerController>(out var player)) return;
 
