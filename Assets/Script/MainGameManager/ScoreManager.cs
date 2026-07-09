@@ -74,9 +74,9 @@ public class ScoreManager : MonoBehaviour
     {
         switch (enemy.Id)
         {
-            case 100://コウモリID
-            case 200://大量コウモリID
-                UpdateScore(_enemyScoreSettings.BatScore);
+            case 100://妖精ID
+            case 200://大量妖精ID
+                UpdateScore(_enemyScoreSettings.GhostScore);
                 break;
 
             case 101://スライム
@@ -84,8 +84,8 @@ public class ScoreManager : MonoBehaviour
                 UpdateScore(_enemyScoreSettings.SlimeScore);
                 break;
 
-            case 102://ゴブリン
-                UpdateScore(_enemyScoreSettings.GoblinScore);
+            case 102://ゴースト
+                UpdateScore(_enemyScoreSettings.GhostScore);
                 break;
 
             case 103://ゾンビ
@@ -96,8 +96,8 @@ public class ScoreManager : MonoBehaviour
                 UpdateScore(_enemyScoreSettings.SkeletonScore);
                 break;
 
-            case 105://バンパイア
-                UpdateScore(_enemyScoreSettings.VampireScore);
+            case 105://フライング・ブック
+                UpdateScore(_enemyScoreSettings.FlyingBookScore);
                 break;
 
             case 500://ボス

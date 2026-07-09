@@ -14,7 +14,6 @@ public class PlayerHPBarController: MonoBehaviour
         if(_target == null)
         {
             _target = GameObject.FindGameObjectWithTag("Player").transform;
-            Debug.Log(_target);
         }
     }
 

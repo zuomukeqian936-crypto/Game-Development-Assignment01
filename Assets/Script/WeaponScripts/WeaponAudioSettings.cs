@@ -16,4 +16,5 @@ public class WeaponAudioSettings : ScriptableObject
 
     [Header("Sound Effect")]
     public AudioClip PickupSoundClip;
+    public AudioClip ClickClip;
 }

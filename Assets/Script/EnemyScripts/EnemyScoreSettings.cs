@@ -4,12 +4,12 @@ using UnityEngine;
 public class EnemyScoreSettings : ScriptableObject
 {
     [Header("Enemy Score Settings"),Tooltip("敵討伐時のスコア設定")]
-    public float BatScore = 5;
+    public float SpriteScore = 5;
     public float SlimeScore = 10;
     public float ZombieScore = 20;
-    public float GoblinScore = 30;
+    public float GhostScore = 30;
     public float SkeletonScore = 40;
-    public float VampireScore = 50;
+    public float FlyingBookScore = 50;
     public float BossScore = 100;
 
     [Header("Time Score Settings"), Tooltip("時間経過のスコア設定")]

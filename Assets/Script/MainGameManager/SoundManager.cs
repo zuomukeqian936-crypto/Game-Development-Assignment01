@@ -6,9 +6,11 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
+    [Header("References")]
+    [SerializeField] private WeaponAudioSettings _weaponAudioSettings;
+
     [Header("SE Prefab")]
     [SerializeField] private GameObject _sePrefab;
-    [SerializeField] private AudioClip _clickSE;
 
     [Header("SE Prefab Count")]
     [SerializeField] private int _initialSize = 20;
@@ -33,7 +35,7 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     public void OnClickSE()
     {
-        PlaySE(_clickSE);
+        PlaySE(_weaponAudioSettings.ClickClip);
     }
 
     // SE をプールから取得

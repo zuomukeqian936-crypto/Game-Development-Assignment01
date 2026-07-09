@@ -117,7 +117,4 @@ public class WeaponSpawnerStats : BaseStats
             }
         }
     }
-
-    //攻撃SE
-    public AudioClip AttackSE;
 }

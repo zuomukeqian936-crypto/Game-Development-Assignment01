@@ -4353,8 +4353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca51b3ce4c34bd48bf0f5f14a48ee3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  _weaponAudioSettings: {fileID: 11400000, guid: 91ec8f8ba97d4114ba48fa2cceb34cfc, type: 2}
   _sePrefab: {fileID: 2733511380116049331, guid: a4b1ab465447b6b4081dea6e3fb3bff0, type: 3}
-  _clickSE: {fileID: 8300000, guid: 584d1021246cfe24bbca77b69dbeb3e2, type: 3}
   _initialSize: 10
 --- !u!82 &351162384
 AudioSource:
@@ -8896,9 +8896,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1963012274}
-        m_TargetAssemblyTypeName: TitleUIManager, Assembly-CSharp
-        m_MethodName: OnClickGameStartButton
+      - m_Target: {fileID: 351162383}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnClickSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8908,9 +8908,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 351162383}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: OnClickSE
+      - m_Target: {fileID: 1963012274}
+        m_TargetAssemblyTypeName: TitleUIManager, Assembly-CSharp
+        m_MethodName: OnClickGameStartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
