@@ -18621,12 +18621,12 @@ MonoBehaviour:
   - {fileID: 6303187880002476553, guid: 26f7b0dc560422d47aa40adfda45a1d2, type: 3}
   _treasureChestPrefab: {fileID: 7212726113817585149, guid: 84b624c5f70add1408b8aa2cbeb27ecf, type: 3}
   _treasureChestItemIds: 03000000040000000500000006000000
-  _treasureChestTimerMin: 1
-  _treasureChestTimerMax: 5
+  _treasureChestTimerMin: 70
+  _treasureChestTimerMax: 90
   _canbas: {fileID: 2089514581}
   _ImagePlayerIconPrefab: {fileID: 562145596162527340, guid: 774c6dad5d951974ca8ae262f26ee63e, type: 3}
   _defeatedEnemyCountText: {fileID: 556447559}
-  _defeatedEnemyCount: 40
+  _defeatedEnemyCount: 0
   _gameOverTime: 900
   _TileMapStart: {x: 0, y: 0}
   _TileMapEnd: {x: 0, y: 0}
@@ -22929,13 +22929,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _gameSceneDirector: {fileID: 1890797351}
   _enemySpawnDatas:
-  - _title: 00:00
+  - _title: "00:00 \u5996\u7CBE\u3000\u5358\u4F53"
     _elapsedMinutes: 0
     _elapsedSeconds: 0
     _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: 64000000
+  - _title: "00:20  \u5996\u7CBE 10\u4F53"
+    _elapsedMinutes: 0
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 10
+    _enemyIds: 64000000
+  - _title: "00:22  \u5996\u7CBE \u96C6\u56E3"
+    _elapsedMinutes: 0
+    _elapsedSeconds: 22
+    _spawnType: 1
     _spawnDuration: 10
     _spawnCountMax: 20
+    _enemyIds: c8000000
+  - _title: "00:24  \u5996\u7CBE "
+    _elapsedMinutes: 0
+    _elapsedSeconds: 24
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
     _enemyIds: 64000000
+  - _title: "00:28 \u5996\u7CBE\u3000\u96C6\u56E3"
+    _elapsedMinutes: 0
+    _elapsedSeconds: 28
+    _spawnType: 1
+    _spawnDuration: 10
+    _spawnCountMax: 20
+    _enemyIds: c8000000
+  - _title: "00:30 \u30B9\u30E9\u30A4\u30E0\u3000\u5358\u4F53"
+    _elapsedMinutes: 0
+    _elapsedSeconds: 30
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: 65000000
+  - _title: "00:40 \u5996\u7CBE\u3000\u96C6\u56E3"
+    _elapsedMinutes: 0
+    _elapsedSeconds: 40
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 20
+    _enemyIds: c8000000
+  - _title: "00:42 \u30B9\u30E9\u30A4\u30E0\u3000\u5358\u4F53"
+    _elapsedMinutes: 0
+    _elapsedSeconds: 42
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: 65000000
   _groupSpawnRadius: 0.8
   _tilemapCollider: {fileID: 1838732598}
 --- !u!4 &2043941477

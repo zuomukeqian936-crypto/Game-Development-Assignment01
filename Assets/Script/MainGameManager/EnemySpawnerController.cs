@@ -110,7 +110,7 @@ public class EnemySpawnerController : MonoBehaviour
             //一体のときは敵のスポーン場所をランダムにする処理
             if (_enemySpawnData._spawnCountMax == 1)
             {
-                UnityEngine.Random.Range(0f, 360f);
+                angleOffset = UnityEngine.Random.Range(0f, 360f);
             }
             
             //プレイヤー周辺の出現場所

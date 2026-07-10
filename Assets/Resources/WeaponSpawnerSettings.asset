@@ -18,7 +18,7 @@ MonoBehaviour:
     Lv: 1
     Name: "\u30B9\u30E9\u30C3\u30B7\u30E5"
     Description: "\t\t"
-    Attack: 15
+    Attack: 10
     Defense: 0
     HP: -1
     MaxHP: 0
@@ -38,8 +38,8 @@ MonoBehaviour:
     Id: 1
     Lv: 1
     Name: "\u65A7"
-    Description: "\t\t"
-    Attack: 30
+    Description: "\u30E9\u30F3\u30C0\u30E0\u306B\u65A7\u3092\u6295\u3052\u98DB\u3070\u3059\t"
+    Attack: 15
     Defense: 0
     HP: -1
     MaxHP: 0
@@ -94,14 +94,14 @@ MonoBehaviour:
     _icon: {fileID: 1284307657752480429, guid: 3df10b447c59f974b9906c30520ac6a6, type: 3}
     LevelUpItemIdMin: 0
     LevelUpItemIdMax: 2
-    _spawnCount: 3
+    _spawnCount: 2
     _spawnTimerMin: 3
     _spawnTimerMax: 3
   - Title: "\u30D6\u30FC\u30E1\u30E9\u30F3"
     Id: 4
     Lv: 1
     Name: "\u30D6\u30FC\u30E1\u30E9\u30F3"
-    Description: "\u56DE\u8EE2\u3057\u306A\u304C\u3089\u623B\u3063\u3066\u304F\u308B"
+    Description: "\u30E9\u30F3\u30C0\u30E0\u306B\u6295\u3052\u3066\u6575\u3092\u653B\u6483"
     Attack: 15
     Defense: 0
     HP: -1
@@ -143,7 +143,7 @@ MonoBehaviour:
     Id: 6
     Lv: 1
     Name: "\u624B\u88CF\u5263"
-    Description: "\u624B\u88CF\u5263\u3092\u6295\u3052\u308B"
+    Description: "\u624B\u88CF\u5263\u3092\u4E0A\u4E0B\u5DE6\u53F3\u306B\u6295\u3052\u308B"
     Attack: 15
     Defense: 0
     HP: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     Lv: 1
     Name: "\u30DC\u30E0"
     Description: "\u7206\u5F3E\u306E\u96E8\u3092\u964D\u3089\u305B\u3066\u5E8A\u30C0\u30E1\u30FC\u30B8\u3092\u4E0E\u3048\u308B"
-    Attack: 50
+    Attack: 20
     Defense: 0
     HP: -1
     MaxHP: 0
@@ -200,5 +200,5 @@ MonoBehaviour:
     LevelUpItemIdMin: 0
     LevelUpItemIdMax: 2
     _spawnCount: 1
-    _spawnTimerMin: 5
-    _spawnTimerMax: 5
+    _spawnTimerMin: 15
+    _spawnTimerMax: 20
