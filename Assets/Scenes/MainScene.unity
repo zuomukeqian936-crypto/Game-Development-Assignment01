@@ -22933,7 +22933,7 @@ MonoBehaviour:
     _elapsedMinutes: 0
     _elapsedSeconds: 0
     _spawnType: 0
-    _spawnDuration: 3
+    _spawnDuration: 4
     _spawnCountMax: 1
     _enemyIds: 64000000
   - _title: "00:20  \u5996\u7CBE 10\u4F53"
@@ -22974,7 +22974,7 @@ MonoBehaviour:
   - _title: "00:40 \u5996\u7CBE\u3000\u96C6\u56E3"
     _elapsedMinutes: 0
     _elapsedSeconds: 40
-    _spawnType: 0
+    _spawnType: 1
     _spawnDuration: 10
     _spawnCountMax: 20
     _enemyIds: c8000000
@@ -22985,6 +22985,260 @@ MonoBehaviour:
     _spawnDuration: 3
     _spawnCountMax: 1
     _enemyIds: 65000000
+  - _title: "01:00 \u30B9\u30E9\u30A4\u30E0\u300010\u4F53"
+    _elapsedMinutes: 1
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 10
+    _enemyIds: 65000000
+  - _title: "01:02 \u30B9\u30E9\u30A4\u30E0\u3000\u5358\u4F53"
+    _elapsedMinutes: 1
+    _elapsedSeconds: 2
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: 65000000
+  - _title: "01:20 \u30B9\u30E9\u30A4\u30E0\u30FB\u5996\u7CBE\u300015\u4F53"
+    _elapsedMinutes: 1
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 15
+    _enemyIds: 6500000064000000
+  - _title: "01:22 \u30B9\u30E9\u30A4\u30E0 \u5358\u4F53"
+    _elapsedMinutes: 1
+    _elapsedSeconds: 22
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 1
+    _enemyIds: 65000000
+  - _title: "01:40 \u30B9\u30E9\u30A4\u30E0 10\u4F53"
+    _elapsedMinutes: 1
+    _elapsedSeconds: 40
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 20
+    _enemyIds: 65000000
+  - _title: "01:42 \u30B9\u30E9\u30A4\u30E0\u30FB\u30BE\u30F3\u30D3 \u5358\u4F53"
+    _elapsedMinutes: 1
+    _elapsedSeconds: 42
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: 6500000066000000
+  - _title: "02:20 \u30B9\u30E9\u30A4\u30E0\u30FB\u30BE\u30F3\u30D3 \u96C6\u56E3"
+    _elapsedMinutes: 2
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 15
+    _enemyIds: 6500000066000000
+  - _title: "02:32 \u30BE\u30F3\u30D3 \u5358\u4F53"
+    _elapsedMinutes: 2
+    _elapsedSeconds: 32
+    _spawnType: 0
+    _spawnDuration: 2
+    _spawnCountMax: 1
+    _enemyIds: 66000000
+  - _title: "03:00 \u30BE\u30F3\u30D3 \u96C6\u56E3"
+    _elapsedMinutes: 3
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 10
+    _enemyIds: 66000000
+  - _title: "03:20 \u30BE\u30F3\u30D3 \u5358\u4F53"
+    _elapsedMinutes: 3
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 2
+    _spawnCountMax: 1
+    _enemyIds: 66000000
+  - _title: "03:40 \u30BE\u30F3\u30D3 \u96C6\u56E3"
+    _elapsedMinutes: 3
+    _elapsedSeconds: 40
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 10
+    _enemyIds: 66000000
+  - _title: "03:52 \u30BE\u30F3\u30D3\u30FB\u30B9\u30B1\u30EB\u30C8\u30F3 \u5358\u4F53"
+    _elapsedMinutes: 3
+    _elapsedSeconds: 52
+    _spawnType: 0
+    _spawnDuration: 2
+    _spawnCountMax: 1
+    _enemyIds: 6600000067000000
+  - _title: "04:20 \u30BE\u30F3\u30D3\u30FB\u30B9\u30B1\u30EB\u30C8\u30F3 \u96C6\u56E3"
+    _elapsedMinutes: 4
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 20
+    _enemyIds: 6600000067000000
+  - _title: "04:40 \u30B9\u30B1\u30EB\u30C8\u30F3\u5358\u4F53"
+    _elapsedMinutes: 5
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 30
+    _spawnCountMax: 1
+    _enemyIds: 67000000
+  - _title: "05:00 \u4E2D\u30DC\u30B9\u30DC\u30B9\u5358\u4F53"
+    _elapsedMinutes: 5
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 35
+    _spawnCountMax: 1
+    _enemyIds: f4010000
+  - _title: "05:30 \u5F37\u5316\u5996\u7CBE\u30FB\u30B9\u30E9\u30A4\u30E0 \u96C6\u56E3"
+    _elapsedMinutes: 5
+    _elapsedSeconds: 30
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 15
+    _enemyIds: c9000000ca000000
+  - _title: "06:00 \u5F37\u5316\u5996\u7CBE\u30FB\u30B9\u30E9\u30A4\u30E0\u5358\u4F53"
+    _elapsedMinutes: 6
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 4
+    _spawnCountMax: 1
+    _enemyIds: c9000000ca000000
+  - _title: "07:00 \u5F37\u5316\u5996\u7CBE\u30FB\u30B9\u30E9\u30A4\u30E0\u96C6\u56E3"
+    _elapsedMinutes: 7
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 15
+    _enemyIds: c9000000ca000000
+  - _title: "07:02 \u5F37\u5316\u5996\u7CBE\u30FB\u30B9\u30E9\u30A4\u30E0\u5358\u4F53"
+    _elapsedMinutes: 7
+    _elapsedSeconds: 2
+    _spawnType: 0
+    _spawnDuration: 4
+    _spawnCountMax: 1
+    _enemyIds: c9000000ca000000
+  - _title: "07:20 \u5F37\u5316\u5996\u7CBE\u30FB\u30B9\u30E9\u30A4\u30E0\u96C6\u56E3"
+    _elapsedMinutes: 7
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 15
+    _enemyIds: c9000000ca000000
+  - _title: "07:42 \u5F37\u5316\u30B9\u30E9\u30A4\u30E0\u30FB\u30BE\u30F3\u30D3\u3000\u5358\u4F53 "
+    _elapsedMinutes: 7
+    _elapsedSeconds: 42
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: ca000000cb000000
+  - _title: "08:00 \u5F37\u5316\u30B9\u30E9\u30A4\u30E0\u30FB\u30BE\u30F3\u30D3\u3000\u96C6\u56E3 "
+    _elapsedMinutes: 8
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 10
+    _enemyIds: ca000000cb000000
+  - _title: "08:22 \u5F37\u5316\u30BE\u30F3\u30D3\u30FB\u30B9\u30B1\u30EB\u30C8\u30F3\u3000\u5358\u4F53"
+    _elapsedMinutes: 8
+    _elapsedSeconds: 22
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: cb000000cc000000
+  - _title: "08:50 \u5F37\u5316\u30BE\u30F3\u30D3\u30FB\u30B9\u30B1\u30EB\u30C8\u30F3\u3000\u96C6\u56E3"
+    _elapsedMinutes: 8
+    _elapsedSeconds: 50
+    _spawnType: 0
+    _spawnDuration: 6
+    _spawnCountMax: 10
+    _enemyIds: cb000000cc000000
+  - _title: "09:20 \u30B4\u30FC\u30B9\u30C8\u3000\u5358\u4F53"
+    _elapsedMinutes: 9
+    _elapsedSeconds: 20
+    _spawnType: 0
+    _spawnDuration: 22
+    _spawnCountMax: 1
+    _enemyIds: 68000000
+  - _title: "10:00 \u30DC\u30B9\u3000\u5358\u4F53"
+    _elapsedMinutes: 10
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 100
+    _spawnCountMax: 1
+    _enemyIds: f5010000
+  - _title: "10:40 \u30B4\u30FC\u30B9\u30C8\u3000\u5358\u4F53"
+    _elapsedMinutes: 10
+    _elapsedSeconds: 40
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 1
+    _enemyIds: 68000000
+  - _title: "11:05 \u30B4\u30FC\u30B9\u30C8\u30FB\u30D5\u30E9\u30A4\u30F3\u30B0\u30D6\u30C3\u30AF
+      \u5358\u4F53"
+    _elapsedMinutes: 11
+    _elapsedSeconds: 5
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 1
+    _enemyIds: 6800000069000000
+  - _title: "11:30 \u30B4\u30FC\u30B9\u30C8\u30FB\u30D5\u30E9\u30A4\u30F3\u30B0\u30D6\u30C3\u30AF
+      \u96C6\u56E3"
+    _elapsedMinutes: 11
+    _elapsedSeconds: 30
+    _spawnType: 0
+    _spawnDuration: 4
+    _spawnCountMax: 10
+    _enemyIds: 6800000069000000
+  - _title: "11:45 \u30D5\u30E9\u30A4\u30F3\u30B0\u30D6\u30C3\u30AF \u5358\u4F53"
+    _elapsedMinutes: 11
+    _elapsedSeconds: 45
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 1
+    _enemyIds: 69000000
+  - _title: "12:00 \u30DC\u30B9 \u5358\u4F53"
+    _elapsedMinutes: 12
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 60
+    _spawnCountMax: 1
+    _enemyIds: f5010000
+  - _title: "12:30 \u30E2\u30D6\u6575\u3000\u5358\u4F53 "
+    _elapsedMinutes: 12
+    _elapsedSeconds: 30
+    _spawnType: 0
+    _spawnDuration: 5
+    _spawnCountMax: 1
+    _enemyIds: c9000000ca000000cb000000cc0000006800000069000000
+  - _title: "13:30 \u30DC\u30B9\u3000\u5358\u4F53 "
+    _elapsedMinutes: 13
+    _elapsedSeconds: 30
+    _spawnType: 0
+    _spawnDuration: 60
+    _spawnCountMax: 1
+    _enemyIds: f5010000
+  - _title: "13:50 \u30E2\u30D6\u6575\u3000\u5358\u4F53 "
+    _elapsedMinutes: 13
+    _elapsedSeconds: 50
+    _spawnType: 0
+    _spawnDuration: 3
+    _spawnCountMax: 1
+    _enemyIds: 6800000069000000c9000000ca000000cb000000cc000000
+  - _title: "14:20 \u30E2\u30D6\u6575\u3000\u96C6\u56E3 "
+    _elapsedMinutes: 13
+    _elapsedSeconds: 50
+    _spawnType: 0
+    _spawnDuration: 4
+    _spawnCountMax: 15
+    _enemyIds: 6800000069000000c9000000ca000000cb000000cc000000
+  - _title: "14:35 \u30D5\u30E9\u30A4\u30F3\u30B0\u30D6\u30C3\u30AF\u3000\u5358\u4F53"
+    _elapsedMinutes: 14
+    _elapsedSeconds: 35
+    _spawnType: 0
+    _spawnDuration: 60
+    _spawnCountMax: 1
+    _enemyIds: 69000000
   _groupSpawnRadius: 0.8
   _tilemapCollider: {fileID: 1838732598}
 --- !u!4 &2043941477

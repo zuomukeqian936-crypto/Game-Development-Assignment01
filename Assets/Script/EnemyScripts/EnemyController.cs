@@ -113,7 +113,9 @@ public class EnemyController : MonoBehaviour
     {
         if(State.Alive != _state) return;
 
-        if(MoveType.TargetPlayer == _characterStats.MoveType)
+        _rb2D.linearVelocity = Vector2.zero;
+
+        if (MoveType.TargetPlayer == _characterStats.MoveType)
         {
             Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
             _forward = dir;
@@ -166,7 +168,10 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _capsuleCollider.isTrigger = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _capsuleCollider.isTrigger = true;     
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
