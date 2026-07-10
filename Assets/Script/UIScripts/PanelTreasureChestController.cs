@@ -157,7 +157,7 @@ public class PanelTreasureChestController : MonoBehaviour
         seq.Append(_imageOpen.DOFade(0, itemDuration).SetDelay(0.5f));
 
         //アイテムフェードイン　＆　移動
-        seq.Append(_imageItem.DOFade(0, itemDuration));
+        seq.Append(_imageItem.DOFade(1, itemDuration));
         seq.Join(image.DOAnchorPos(itemTargetPos, itemDuration));
 
         //演出フェードイン

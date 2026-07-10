@@ -74,7 +74,8 @@ public class WeaponSpawnerStats : BaseStats
 {
     public GameObject _prefabSpawner;
     public Sprite _icon;
-    public int _leevlUpItemId;　　　//レベルアップの際に追加されるアイテムID
+    public int LevelUpItemIdMin;　　　//レベルアップの際に追加されるアイテムID
+    public int LevelUpItemIdMax;
 
     //生成する数
     public float _spawnCount;

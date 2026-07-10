@@ -34,12 +34,14 @@ public class EnemyController : MonoBehaviour
     public State _state;
 
     public Rigidbody2D _rb2D;
+    private CapsuleCollider2D _capsuleCollider;
 
     public object UnitySystem { get; private set; }
 
     private void Awake()
     {
         _scoreManager = FindAnyObjectByType<ScoreManager>();
+        _capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
 
@@ -64,11 +66,11 @@ public class EnemyController : MonoBehaviour
         float Speed = 1 / _characterStats.MoveSpeed * random;
 
         //サイズ
-        float addx = _size;
-        float x = addx;
-        transform.DOScale(x, Speed)
-            .SetRelative()
-            .SetLoops(-1, LoopType.Yoyo);
+        //float addx = _size;
+        //float x = addx;
+        //transform.DOScale(x, Speed)
+        //    .SetRelative()
+        //    .SetLoops(-1, LoopType.Yoyo);
 
         //回転
         float addz = _rotation;
@@ -84,6 +86,7 @@ public class EnemyController : MonoBehaviour
         //進む方向
         PlayerController plaeyr = _sceneDirector._playerController;
         Vector2 dir = _sceneDirector._playerController.transform.position - transform.position;
+        _forward = dir.normalized;
      
         _state = State.Alive;
      
@@ -161,9 +164,9 @@ public class EnemyController : MonoBehaviour
         _state = State.Dead;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        AttackPlayer(collision);
+        _capsuleCollider.isTrigger = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -173,7 +176,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        _capsuleCollider.isTrigger = false;
     }
 
     /// <summary>

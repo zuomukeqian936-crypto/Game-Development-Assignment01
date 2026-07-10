@@ -118,7 +118,7 @@ public class BaseWeaponSpawner : MonoBehaviour
         else
         {
             //説明をアイテムのものに書き換える
-            ItemData itemData = ItemSettings.Instance.Get(_weaponStats._leevlUpItemId);
+            ItemData itemData = ItemSettings.Instance.Get(Random.Range(_weaponStats.LevelUpItemIdMin,_weaponStats.LevelUpItemIdMax + 1));
             ret.Description = itemData.Description;
         }
 
@@ -148,7 +148,7 @@ public class BaseWeaponSpawner : MonoBehaviour
         else
         {
             //説明をアイテムのものに書き換える
-            ItemData itemData = ItemSettings.Instance.Get(_weaponStats._leevlUpItemId);
+            ItemData itemData = ItemSettings.Instance.Get(Random.Range(_weaponStats.LevelUpItemIdMin,_weaponStats.LevelUpItemIdMax + 1));
             _weaponStats.AddItemData(itemData);
         }
 

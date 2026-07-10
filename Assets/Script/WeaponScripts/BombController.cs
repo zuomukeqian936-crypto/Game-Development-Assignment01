@@ -33,7 +33,7 @@ public class BombController : BaseWeapon
         //爆発時
         _animationTimer.Add(State.Explosion, 0.66f);
         //ダメージフロア
-        _animationTimer.Add(State.DamageFloor, 30f);
+        _animationTimer.Add(State.DamageFloor, 10f);
 
         //初期状態
         _state = State.Bomb;

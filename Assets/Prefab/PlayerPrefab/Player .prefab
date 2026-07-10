@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6253348573131270844}
   - component: {fileID: 1051568860265109415}
   - component: {fileID: 4882356858256221550}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'Player '
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -217,6 +217,27 @@ MonoBehaviour:
     UsableweaponMax: 0
     MoveType: 0
   _enemySpawnerController: {fileID: 0}
+  _weaponSpawnerStats:
+    Title: 
+    Id: 0
+    Lv: 0
+    Name: 
+    Description: 
+    Attack: 0
+    Defense: 0
+    HP: 0
+    MaxHP: 0
+    XP: 0
+    MaxXP: 0
+    MoveSpeed: 0
+    PickUpRange: 0
+    AliveTime: 0
+    _prefabSpawner: {fileID: 0}
+    _icon: {fileID: 0}
+    _leevlUpItemId: 0
+    _spawnCount: 0
+    _spawnTimerMin: 0
+    _spawnTimerMax: 0
   _maxLevel: 1000
   _addXP: 16
   _forward: {x: 0, y: 0}

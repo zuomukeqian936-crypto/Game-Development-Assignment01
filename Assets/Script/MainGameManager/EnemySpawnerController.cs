@@ -105,15 +105,23 @@ public class EnemySpawnerController : MonoBehaviour
         //敵生成
         for(int i = 0; i < _enemySpawnData._spawnCountMax; i++)
         {
+            float angleOffset = 0f;
+
+            //一体のときは敵のスポーン場所をランダムにする処理
+            if (_enemySpawnData._spawnCountMax == 1)
+            {
+                UnityEngine.Random.Range(0f, 360f);
+            }
+            
             //プレイヤー周辺の出現場所
-            float angle = 360 / _enemySpawnData._spawnCountMax * i;
+            float angle = 360 / _enemySpawnData._spawnCountMax * i + angleOffset;
 
             float x = Mathf.Cos(angle * Mathf.Deg2Rad) * _spawnRadius;
 
             float y = Mathf.Sin(angle * Mathf.Deg2Rad) * _spawnRadius;
 
             //生成位置
-            Vector3 pos = center + new Vector3(x, y, 0);
+            Vector2 pos = center + new Vector3(x, y, 0);
 
             //当たり判定のあるタイル状なら生成しない処理
             if (Utils.IsColliderTile(_tilemapCollider, pos)) continue;
@@ -160,7 +168,7 @@ public class EnemySpawnerController : MonoBehaviour
             y = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
 
             //生成位置
-            Vector3 pos = center + new Vector3(x, y, 0);
+            Vector2 pos = center + new Vector3(x, y, 0);
 
             //当たり判定のあるタイル状なら生成しない処理
             if (Utils.IsColliderTile(_tilemapCollider, pos)) continue;

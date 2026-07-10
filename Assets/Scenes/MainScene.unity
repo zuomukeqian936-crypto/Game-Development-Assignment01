@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _weaponAudioSettings: {fileID: 11400000, guid: 91ec8f8ba97d4114ba48fa2cceb34cfc, type: 2}
   _sePrefab: {fileID: 2733511380116049331, guid: a4b1ab465447b6b4081dea6e3fb3bff0, type: 3}
-  _initialSize: 50
+  _initialSize: 10
 --- !u!4 &9565315
 Transform:
   m_ObjectHideFlags: 0
@@ -18626,8 +18626,8 @@ MonoBehaviour:
   _canbas: {fileID: 2089514581}
   _ImagePlayerIconPrefab: {fileID: 562145596162527340, guid: 774c6dad5d951974ca8ae262f26ee63e, type: 3}
   _defeatedEnemyCountText: {fileID: 556447559}
-  _defeatedEnemyCount: 1
-  _gameOverTime: 300
+  _defeatedEnemyCount: 40
+  _gameOverTime: 900
   _TileMapStart: {x: 0, y: 0}
   _TileMapEnd: {x: 0, y: 0}
   _WorldStart: {x: 0, y: 0}
@@ -18661,7 +18661,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _enemyScoreSettings: {fileID: 11400000, guid: e7147240203a3074a9f07a62e87e273b, type: 2}
   _gameSceneDirector: {fileID: 1890797351}
-  _enemyController: {fileID: 0}
   _scoreText: {fileID: 556447559}
   _earlyPhaseTime: 7
   _midPhaseTime: 14
@@ -22929,8 +22928,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _gameSceneDirector: {fileID: 1890797351}
-  _enemySpawnDatas: []
-  _groupSpawnRadius: 0.5
+  _enemySpawnDatas:
+  - _title: 00:00
+    _elapsedMinutes: 0
+    _elapsedSeconds: 0
+    _spawnType: 0
+    _spawnDuration: 10
+    _spawnCountMax: 20
+    _enemyIds: 64000000
+  _groupSpawnRadius: 0.8
   _tilemapCollider: {fileID: 1838732598}
 --- !u!4 &2043941477
 Transform:
@@ -22982,7 +22988,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052610391
 MonoBehaviour:
@@ -23004,7 +23010,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89a79317a445e4ed8a8e70115f8a1cc0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

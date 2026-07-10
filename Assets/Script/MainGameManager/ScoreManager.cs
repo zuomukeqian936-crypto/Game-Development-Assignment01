@@ -8,7 +8,6 @@ public class ScoreManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private EnemyScoreSettings _enemyScoreSettings;
     [SerializeField] private GameSceneDirector _gameSceneDirector;
-    [SerializeField] private EnemyController _enemyController;
 
     [Header("UI Setting")]
     [SerializeField] private Text _scoreText;
