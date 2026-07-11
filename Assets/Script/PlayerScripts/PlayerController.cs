@@ -25,8 +25,8 @@ public class PlayerController : MonoBehaviour
     private float _maxCoolDownTime = 0.5f;
     private float _coolDownTimer;
 
-    [Header("Max Level")]
-    [SerializeField] private int _maxLevel = 1000;
+    //[Header("Max Level")]
+    //[SerializeField] private int _maxLevel = 1000;
 
     [Header("Add XP")]
     [SerializeField] private int _addXP = 16;

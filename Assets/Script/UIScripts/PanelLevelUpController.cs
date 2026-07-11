@@ -118,7 +118,7 @@ public class PanelLevelUpController : MonoBehaviour
             button.onClick.AddListener(() =>
             {
                 _gameSceneDirector.PlayGame(new BonusData(item));
-                _sliderHP.SetActive(false);
+                _sliderHP.SetActive(true);
                 gameObject.SetActive(false);
             });
 

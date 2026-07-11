@@ -23,8 +23,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _minValue = 0.8f;
     [SerializeField] private float _maxValue = 1.2f;
 
-    [Header("Character Size Settings")]
-    [SerializeField] private float _size = 0.8f;
+    //[Header("Character Size Settings")]
+    //[SerializeField] private float _size = 0.8f;
 
     [Header("Character Rotation Settings")]
     [SerializeField] private float _rotation = 10f;
@@ -136,12 +136,34 @@ public class EnemyController : MonoBehaviour
         {
             _characterStats.AliveTime -= Time.deltaTime;
             if (_characterStats.AliveTime <= 0)
-                SetDead(false);
+                SetDeadTime(false);
         }
-
     }
 
-    //敵が死んだときに呼び出される処理
+    //生存時間オーバーに死亡処理
+    private void SetDeadTime(bool createXP = true)
+    {
+        if (State.Alive != _state) return;
+
+        //物理挙動停止
+        _rb2D.simulated = false;
+
+        //アニメーション停止
+        transform.DOKill();
+
+        //縦につぶれるアニメーション
+        transform.DOScaleY(0, 0.5f).OnComplete(() => Destroy(gameObject));
+
+        if (createXP)
+        {
+            //経験値生成
+            _sceneDirector.CreateXP(this);
+        }
+
+        _state = State.Dead;
+    }
+
+    //敵がPlayerによって殺された時の死亡処理
     private void SetDead(bool createXP = true)
     {
         if (State.Alive != _state) return;

@@ -32,7 +32,7 @@ public class TitleUIManager : MonoBehaviour
     [SerializeField] private float _showTitleTextTime = 6f;
     [SerializeField] private float _showCharacterTime = 7f;
     [SerializeField] private float _showButtonTextTime = 8f;
-    [SerializeField] private float _showPlayer = 2f;
+    //[SerializeField] private float _showPlayer = 2f;
 
     private bool _isShown;
 

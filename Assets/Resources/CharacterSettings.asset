@@ -20,8 +20,8 @@ MonoBehaviour:
     Description: "\t\t"
     Attack: 5
     Defense: 1
-    HP: 150
-    MaxHP: 150
+    HP: 1
+    MaxHP: 1
     XP: 0
     MaxXP: 50
     MoveSpeed: 2

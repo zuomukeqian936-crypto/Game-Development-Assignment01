@@ -1,3 +1,4 @@
+using DG.Tweening;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ public class GameSceneDirector : MonoBehaviour
     [SerializeField] private List<int> _treasureChestItemIds;
     [SerializeField] private float _treasureChestTimerMin;
     [SerializeField] private float _treasureChestTimerMax;
+    [SerializeField] private Image _backGroundImage;
     private float _treasureChestTimer;
 
     [Header("Left Icon Image Settings")]//左上に表示するアイコン
@@ -89,12 +91,12 @@ public class GameSceneDirector : MonoBehaviour
         //TimeScaleリセット
         SetEnabled();
 
+        _backGroundImage.gameObject.SetActive(false);
+
         //SoundManager.Instance.PlayBGM(0);
 
         if (_playerController != null) return;
         _playerController = FindAnyObjectByType<PlayerController>();
-
-        
     }
 
     void Update()
@@ -106,7 +108,12 @@ public class GameSceneDirector : MonoBehaviour
 
         if(_gameTimer > _gameOverTime)
         {
-            RankingSaveData.Instance.SaveRankingData();
+            _backGroundImage.gameObject.SetActive(true);
+            _backGroundImage.DOFade(0.5f, 1.5f)
+                .OnComplete(() =>
+                {
+                    RankingSaveData.Instance.SaveRankingData();
+                }); 
         }
     }
 
