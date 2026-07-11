@@ -4,9 +4,14 @@ public class ArrowController : BaseWeapon
 {
 
     public EnemyController _target;
+    private SoundManager _soundManager;
+    private WeaponAudioSettings _weaponAudioSettings;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _soundManager = FindAnyObjectByType<SoundManager>();
+        _weaponAudioSettings = Resources.Load<WeaponAudioSettings>("WeaponAudioSettings");
         //方向
         Vector2 forward = _target.transform.position - transform.position;
 
@@ -36,6 +41,9 @@ public class ArrowController : BaseWeapon
     {
         //敵以外
         if (!collision.gameObject.TryGetComponent<EnemyController>(out var enemy)) return;
+
+        //オーディオ処理
+        _soundManager.PlaySE(_weaponAudioSettings.ArrowClip, 0.3f, 1f);
 
         //通常ダメージ
         float attack = _weaponSpawnerStats.Attack;

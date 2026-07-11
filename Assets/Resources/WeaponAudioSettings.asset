@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAudioSettings
   SlashClip: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
   AxeClip: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
-  ArrowClip: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
+  ArrowClip: {fileID: 8300000, guid: 9bdf361fcc4136d42ae0705404ab805c, type: 3}
   BombClip: {fileID: 8300000, guid: 6344d7225156eed408b37beb2a8ad115, type: 3}
-  BoomerangClip: {fileID: 0}
+  BoomerangClip: {fileID: 8300000, guid: 06bd068516a822f4198388755bc4d535, type: 3}
   KinifeClip: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
   PinwheelClip: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
   ShurikenClip: {fileID: 8300000, guid: efef05657c76770439b74d3b65db290f, type: 3}
-  ShieldClip: {fileID: 0}
+  ShieldClip: {fileID: 8300000, guid: 9eb3a61eba2ceab4b9e3069f13ac0bd8, type: 3}
   PickupSoundClip: {fileID: 8300000, guid: 6ef0fbadbc18c9548ac089d8d83506f5, type: 3}
   ClickClip: {fileID: 8300000, guid: 584d1021246cfe24bbca77b69dbeb3e2, type: 3}
