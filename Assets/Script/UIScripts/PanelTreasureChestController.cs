@@ -12,6 +12,7 @@ public class PanelTreasureChestController : MonoBehaviour
     [SerializeField] private Button _buttonOpen;
     [SerializeField] private Button _buttonClose;
     [SerializeField] private Text _textDescription;
+    [SerializeField] private GameObject _sliderHP;
 
     private GameSceneDirector _gameSceneDirector;
 
@@ -37,6 +38,9 @@ public class PanelTreasureChestController : MonoBehaviour
     //宝箱パネルを表示
     public void DispPanel(ItemData itemData)
     {
+        //HPバー非表示処理
+        _sliderHP.SetActive(false);
+
         //今回取得したアイテム
         _itemData = itemData;
 
@@ -193,6 +197,7 @@ public class PanelTreasureChestController : MonoBehaviour
     //クローズボタン
     public void OnClickClose()
     {
+        _sliderHP.SetActive(true);
         //ループ系を止める
         //_imageBackFX.DOKill();
         _imageBackFXShiny.DOKill();

@@ -247,7 +247,7 @@ MonoBehaviour:
     Name: "\u30DC\u30B9"
     Description: "\t\t"
     Attack: 30
-    Defense: 10
+    Defense: 8
     HP: 1000
     MaxHP: 1200
     XP: 200

@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class PanelLevelUpController : MonoBehaviour
 {
+    [Header("UI Settings")]
     [SerializeField] private List<Button> _buttonLevelUps;
     [SerializeField] private Button _buttonCancel;
+    [SerializeField] private GameObject _sliderHP;
 
     private GameSceneDirector _gameSceneDirector;
 
@@ -76,9 +78,12 @@ public class PanelLevelUpController : MonoBehaviour
         button.gameObject.SetActive(true);
     }
 
-    //キャンセルボタン
+    /// <summary>
+    /// キャンセルボタン　ゲームプレイとレベルアップパネル非表示処理　＋　HPバー表示処理
+    /// </summary>
     public void OnClickCancel()
     {
+        _sliderHP.SetActive(true);
         gameObject.SetActive(false);
         _gameSceneDirector.PlayGame();
     }
@@ -86,6 +91,9 @@ public class PanelLevelUpController : MonoBehaviour
     //レベルアップパネル表示
     public void DispPanel(List<WeaponSpawnerStats> items)
     {
+        //Hpバー非表示処理
+        _sliderHP.SetActive(false);
+
         //アイテムがないとき
         _buttonCancel.gameObject.SetActive(false);
 
@@ -110,6 +118,7 @@ public class PanelLevelUpController : MonoBehaviour
             button.onClick.AddListener(() =>
             {
                 _gameSceneDirector.PlayGame(new BonusData(item));
+                _sliderHP.SetActive(false);
                 gameObject.SetActive(false);
             });
 

@@ -76,7 +76,7 @@ public class ScoreManager : MonoBehaviour
             case 100://妖精
             case 200://大量妖精
             case 201://強化妖精
-                UpdateScore(_enemyScoreSettings.GhostScore);
+                UpdateScore(_enemyScoreSettings.SpriteScore);
                 break;
 
             case 101://スライム

@@ -6,6 +6,7 @@ public class RankingSaveData : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private GameSceneDirector _gameSceneDirector;
 
     [Header("Ranking Max Count"), Tooltip("ランキングリストの最大範囲")]
     [SerializeField] private int _rankingMaxCount = 5;
@@ -92,6 +93,8 @@ public class RankingSaveData : MonoBehaviour
         Debug.Log(data.RankingScoreList.Count);
 
         SaveManager.Save(data);
+
+        SceneManager.LoadScene("ResultScene");
     }
 
 
