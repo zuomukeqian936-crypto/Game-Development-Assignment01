@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2884367296654439125}
   m_Layer: 7
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,6 @@ MonoBehaviour:
     MoveType: 0
   _minValue: 0.8
   _maxValue: 1.2
-  _size: 0.8
   _rotation: 10
   _state: 0
   _rb2D: {fileID: 0}

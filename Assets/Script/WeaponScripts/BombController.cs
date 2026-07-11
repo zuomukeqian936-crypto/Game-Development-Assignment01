@@ -16,6 +16,8 @@ public class BombController : BaseWeapon
     private State _state;
 
     private Animator _animator;
+    private SoundManager _soundManager;
+    private WeaponAudioSettings _weaponAudioSettings;
     private Dictionary<State, float> _animationTimer;
     private float _damageFloorCoolDownTime = 0.5f;
     private Dictionary<EnemyController, float> _damageFloorTimer;
@@ -27,6 +29,8 @@ public class BombController : BaseWeapon
         _animationTimer = new Dictionary<State, float>();
         _damageFloorTimer = new Dictionary<EnemyController, float>();
         _animator = GetComponent<Animator>();
+        _soundManager = FindAnyObjectByType<SoundManager>();
+        _weaponAudioSettings = Resources.Load<WeaponAudioSettings>("WeaponAudioSettings");
 
         //爆弾時
         _animationTimer.Add(State.Bomb, Random.Range(0.5f, 1.5f));
@@ -57,6 +61,7 @@ public class BombController : BaseWeapon
         //爆発
         if(State.Explosion == next)
         {
+            _soundManager.PlaySE(_weaponAudioSettings.BombClip, 0.3f);
             _animator.SetTrigger("isExplosion");
             _rb2D.gravityScale = 0;
             _rb2D.linearVelocity = Vector2.zero;
