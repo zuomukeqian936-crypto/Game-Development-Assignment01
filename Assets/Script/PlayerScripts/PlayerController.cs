@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _addXP = 16;
 
     private Rigidbody2D _rb2D;
+    public Rigidbody2D Rb2D => _rb2D;
     private PlayerControls _playerAction;
     private Animator _animator;
 

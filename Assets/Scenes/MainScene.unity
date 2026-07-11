@@ -18914,14 +18914,14 @@ MonoBehaviour:
   - {fileID: 6303187880002476553, guid: 26f7b0dc560422d47aa40adfda45a1d2, type: 3}
   _treasureChestPrefab: {fileID: 7212726113817585149, guid: 84b624c5f70add1408b8aa2cbeb27ecf, type: 3}
   _treasureChestItemIds: 05000000060000000700000008000000
-  _treasureChestTimerMin: 1
-  _treasureChestTimerMax: 1
+  _treasureChestTimerMin: 60
+  _treasureChestTimerMax: 70
   _backGroundImage: {fileID: 188379473}
   _canbas: {fileID: 2089514581}
   _ImagePlayerIconPrefab: {fileID: 562145596162527340, guid: 774c6dad5d951974ca8ae262f26ee63e, type: 3}
   _defeatedEnemyCountText: {fileID: 556447559}
   _defeatedEnemyCount: 0
-  _gameOverTime: 900
+  _gameOverTime: 5
   _TileMapStart: {x: 0, y: 0}
   _TileMapEnd: {x: 0, y: 0}
   _WorldStart: {x: 0, y: 0}

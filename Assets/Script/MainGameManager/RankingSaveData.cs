@@ -57,6 +57,16 @@ public class RankingSaveData : MonoBehaviour
         SceneManager.LoadScene("ResultScene");
     }
 
+    /// <summary>
+    /// ランキングリセット
+    /// </summary>
+    public void SaveRankingReset()
+    {
+        CurrentData.RankingScoreList.Clear();
+        SaveManager.Save(CurrentData);   
+        Debug.Log("ランキングリセットされました " + CurrentData.RankingScoreList.Count);
+    }
+
 
     /// <summary>
     /// セーブデータをロード

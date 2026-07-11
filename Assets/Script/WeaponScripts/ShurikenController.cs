@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class ShurikenController : BaseWeapon
 {
+    private SoundManager _soundManager;
+    private WeaponAudioSettings _weaponAudioSettings;
 
+    void Start()
+    {
+        _soundManager = FindAnyObjectByType<SoundManager>();
+        _weaponAudioSettings = Resources.Load<WeaponAudioSettings>("WeaponAudioSettings");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -16,6 +23,10 @@ public class ShurikenController : BaseWeapon
     //トリガーが衝突したときに呼ばれる処理
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DefaultAttackEnemy(collision);
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            _soundManager.PlaySE(_weaponAudioSettings.ShurikenClip, 0.3f, 0.8f);
+            DefaultAttackEnemy(collision);
+        }
     }
 }

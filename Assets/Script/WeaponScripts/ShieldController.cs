@@ -4,6 +4,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ShieldController : BaseWeapon
 {
+    private SoundManager _soundManager;
+    private WeaponAudioSettings _weaponAudioSettings;
+
     //プレイヤーからの距離
     private const float _radius = 1f;
     //現在の角度
@@ -12,6 +15,9 @@ public class ShieldController : BaseWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _soundManager = FindAnyObjectByType<SoundManager>();
+        _weaponAudioSettings = Resources.Load<WeaponAudioSettings>("WeaponAudioSettings");
+
         //フワッとひゅおうじする
         transform.localScale = new Vector3(0, 0, 0);
         transform.DOScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f).SetEase(Ease.OutBounce);
@@ -38,6 +44,7 @@ public class ShieldController : BaseWeapon
         //敵以外
         if (!collision.gameObject.TryGetComponent<EnemyController>(out var enemy)) return;
 
+        _soundManager.PlaySE(_weaponAudioSettings.ShieldClip, 0.3f);
         //反対側へ跳ね返す
         Vector3 forward = enemy.transform.position - transform.root.position;
         enemy.GetComponent<Rigidbody2D>().AddForce(forward.normalized * 5);

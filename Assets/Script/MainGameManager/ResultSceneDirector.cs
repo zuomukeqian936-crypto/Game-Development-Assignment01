@@ -9,6 +9,7 @@ public class ResultSceneDirector : MonoBehaviour
     [Header("References")]
     [SerializeField] private ResultScoreController _resultScoreController;
     [SerializeField] private RankingController _rankingController;
+    [SerializeField] private RankingSaveData _rankingSaveData;
 
     [Header("Show Score Time")]
     [SerializeField] private float _invisibleScoreTime = 1f;
@@ -70,5 +71,13 @@ public class ResultSceneDirector : MonoBehaviour
         _backGroundImage.DOFade(1f, _FadeOutTime)
            .OnComplete(() =>
             SceneManager.LoadScene("MainScene"));
+    }
+
+    /// <summary>
+    /// ランキングリセットボタン
+    /// </summary>
+    public void OnRankingReset()
+    {
+        _rankingSaveData.SaveRankingReset();
     }
 }

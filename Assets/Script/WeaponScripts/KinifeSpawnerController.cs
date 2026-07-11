@@ -20,8 +20,10 @@ public class KinifeSpawnerController : BaseWeaponSpawner
     {
         if (isSpawnTimerNotElapsed()) return;
 
-        //武器生成
-        KinifeController ctrl = (KinifeController)CreateWeapon(transform.position, _player._forward);
+        if (_player.Rb2D.linearVelocity.magnitude <= 0.1f) return;
+
+            //武器生成
+            KinifeController ctrl = (KinifeController)CreateWeapon(transform.position, _player._forward);
 
         //次回の生成タイマー
         _spawnTimer = _onceSpawnTime;
