@@ -6574,7 +6574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &971216444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8672,8 +8672,8 @@ GameObject:
   - component: {fileID: 1121800681}
   - component: {fileID: 1121800683}
   - component: {fileID: 1121800682}
-  - component: {fileID: 1121800684}
   - component: {fileID: 1121800685}
+  - component: {fileID: 1121800686}
   m_Layer: 5
   m_Name: TitleText_1
   m_TagString: Untagged
@@ -8742,21 +8742,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121800680}
   m_CullTransparentMesh: 1
---- !u!114 &1121800684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121800680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 8, y: 1}
-  m_UseGraphicAlpha: 1
 --- !u!95 &1121800685
 Animator:
   serializedVersion: 7
@@ -8779,6 +8764,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1121800686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121800680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Outline
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 6, y: 6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1242180132
 GameObject:
   m_ObjectHideFlags: 0
@@ -9145,7 +9145,7 @@ Transform:
   m_GameObject: {fileID: 1461902559}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.49, y: -0.67, z: 10}
+  m_LocalPosition: {x: -5.37, y: -0.52, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17250,7 +17250,6 @@ MonoBehaviour:
   _showTitleTextTime: 6
   _showCharacterTime: 7
   _showButtonTextTime: 8
-  _showPlayer: 2
 --- !u!4 &1963012275
 Transform:
   m_ObjectHideFlags: 0
@@ -21607,7 +21606,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8751912815915480989, guid: 036c6037ddfc7a04ead3a7ee384fd2dc, type: 3}
       propertyPath: m_EffectDistance.x
-      value: 8
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751912815915480989, guid: 036c6037ddfc7a04ead3a7ee384fd2dc, type: 3}
+      propertyPath: m_EffectDistance.y
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8931595935317513261, guid: 036c6037ddfc7a04ead3a7ee384fd2dc, type: 3}
       propertyPath: m_Pivot.x

@@ -94,6 +94,13 @@ public class PanelLevelUpController : MonoBehaviour
         //Hpバー非表示処理
         _sliderHP.SetActive(false);
 
+        //ダメージ強制削除処理
+        var texts = FindObjectsOfType<DamageText>();
+        foreach (var t in texts)
+        {
+            t.ForceDestroy();
+        }
+
         //アイテムがないとき
         _buttonCancel.gameObject.SetActive(false);
 

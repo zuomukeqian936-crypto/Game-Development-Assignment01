@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class PanelTreasureChestController : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private DamageText _damageText;
+    [SerializeField] private SoundManager _soundManager;
+    [SerializeField] private WeaponAudioSettings _weaponAudioSettings;
+
+    [Header("UI Settings")]
     [SerializeField] private Image _imageClose;
     [SerializeField] private Image _imageOpen;
     [SerializeField] private Image _imageItem;
@@ -40,6 +46,13 @@ public class PanelTreasureChestController : MonoBehaviour
     {
         //HPバー非表示処理
         _sliderHP.SetActive(false);
+
+        //敵ダメージ強制削除処理
+        var texts = FindObjectsOfType<DamageText>();
+        foreach (var t in texts)
+        {
+            t.ForceDestroy();
+        }
 
         //今回取得したアイテム
         _itemData = itemData;
@@ -157,15 +170,16 @@ public class PanelTreasureChestController : MonoBehaviour
         //アニメーションを順番に再生
         Sequence seq = DOTween.Sequence();
 
-        //開いた宝箱がフェードアウト（全体の開始を遅らせる）
-        seq.Append(_imageOpen.DOFade(0, itemDuration).SetDelay(0.5f));
+        //開いた宝箱がフェードアウト（全体の開始を遅らせる） 終わり次第サウンド再生
+        seq.Append(_imageOpen.DOFade(0, itemDuration).SetDelay(0.5f)
+            .OnComplete(() => _soundManager.PlaySE(_weaponAudioSettings.PickupSoundClip)));
 
         //アイテムフェードイン　＆　移動
         seq.Append(_imageItem.DOFade(1, itemDuration));
         seq.Join(image.DOAnchorPos(itemTargetPos, itemDuration));
 
         //演出フェードイン
-       // seq.Append(_imageBackFX.DOFade(1, fxDuration));
+        // seq.Append(_imageBackFX.DOFade(1, fxDuration));
         seq.Join(_imageBackFXShiny.DOFade(0.8f, fxDuration));
 
         //説明フェードイン
@@ -181,7 +195,7 @@ public class PanelTreasureChestController : MonoBehaviour
             .OnComplete(() => _buttonClose.Select())
             );
 
-        foreach(var item in _buttonClose.GetComponentsInChildren<Graphic>())
+        foreach (var item in _buttonClose.GetComponentsInChildren<Graphic>())
         {
             seq.Join(item.DOFade(1, fxDuration));
         }

@@ -66,12 +66,14 @@ public class SoundManager : MonoBehaviour
     /// <summary>
     /// SE 再生（プール版）
     /// </summary>
-    public void PlaySE(AudioClip clip)
+    public void PlaySE(AudioClip clip, float volume = 1, float pitch = 1)
     {
         GameObject seObj = GetSE();
         AudioSource audio = seObj.GetComponent<AudioSource>();
 
         audio.PlayOneShot(clip);
+        audio.volume = volume;
+        audio.pitch = pitch;
 
         DOVirtual.DelayedCall(clip.length, () =>
         {

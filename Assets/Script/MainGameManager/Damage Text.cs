@@ -57,4 +57,12 @@ public class DamageText : MonoBehaviour
             text.color = Color.red;
         }
     }
+
+    /// <summary>
+    /// レベルアップや宝箱の表示したときに強制的に削除処理
+    /// </summary>
+    public void ForceDestroy()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -20,8 +20,8 @@ MonoBehaviour:
     Description: "\t\t"
     Attack: 5
     Defense: 1
-    HP: 1
-    MaxHP: 1
+    HP: 100
+    MaxHP: 100
     XP: 0
     MaxXP: 50
     MoveSpeed: 2
@@ -30,7 +30,7 @@ MonoBehaviour:
     prefab: {fileID: 7653311457445682073, guid: 068a80b8b21eada498735d9e67e94b30, type: 3}
     DefaultWeaponIds: 00000000
     UsableWeaponIds: 0000000001000000020000000400000005000000060000000700000008000000
-    UsableweaponMax: 5
+    UsableweaponMax: 4
     MoveType: 1
   - Title: "\u5996\u7CBE"
     Id: 100

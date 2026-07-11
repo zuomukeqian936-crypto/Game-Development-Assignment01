@@ -15,6 +15,8 @@ public class WeaponAudioSettings : ScriptableObject
     public AudioClip ShieldClip;
 
     [Header("Sound Effect")]
+    [Tooltip("宝箱所得時の獲得効果音")]
     public AudioClip PickupSoundClip;
+    [Tooltip("クリック音の効果音")]
     public AudioClip ClickClip;
 }
