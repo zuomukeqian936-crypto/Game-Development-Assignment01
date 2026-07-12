@@ -49,10 +49,10 @@ public class RankingSaveData : MonoBehaviour
         SaveManager.Save(data);
         Debug.Log("Ranking Data Saved");
 
-        foreach(var score in data.RankingScoreList)
-        {
-            Debug.Log(score);
-        }
+        //foreach(var score in data.RankingScoreList)
+        //{
+        //    Debug.Log(score);
+        //}
 
         SceneManager.LoadScene("ResultScene");
     }
@@ -64,7 +64,7 @@ public class RankingSaveData : MonoBehaviour
     {
         CurrentData.RankingScoreList.Clear();
         SaveManager.Save(CurrentData);   
-        Debug.Log("ランキングリセットされました " + CurrentData.RankingScoreList.Count);
+        //Debug.Log("ランキングリセットされました " + CurrentData.RankingScoreList.Count);
     }
 
 
@@ -80,7 +80,7 @@ public class RankingSaveData : MonoBehaviour
             return;
         }
 
-        Debug.Log("Ranking Data Loaded");
+       // Debug.Log("Ranking Data Loaded");
     }
 
     /// <summary>
@@ -98,8 +98,8 @@ public class RankingSaveData : MonoBehaviour
         // 削除
         data.RankingScoreList.Remove(lowest);
 
-        Debug.Log($"{lowest}が削除されました");
-        Debug.Log(data.RankingScoreList.Count);
+        //Debug.Log($"{lowest}が削除されました");
+        //Debug.Log(data.RankingScoreList.Count);
 
         SaveManager.Save(data);
     }

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: ItemSettings
   m_EditorClassIdentifier: Assembly-CSharp::ItemSettings
   _datas:
-  - Title: "\u3010\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u3011 \u653B\u6483\u529B+10%"
+  - Title: "\u3010\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u3011 \u653B\u6483\u529B+15%"
     Id: 0
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
-    Description: "\u653B\u6483\u529B+10%"
+    Description: "\u653B\u6483\u529B+15%"
     Icon: {fileID: 2704279063308991717, guid: d3b2171c6c28fef419d7e9245f90a127, type: 3}
     Bonuses:
     - Type: 1
       Key: 0
-      Value: 0.1
+      Value: 0.15
   - Title: "\u3010\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u3011 \u653B\u6483\u901F\u5EA6+10%"
     Id: 1
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
@@ -33,7 +33,7 @@ MonoBehaviour:
       Value: -0.1
     - Type: 1
       Key: 11
-      Value: 0.1
+      Value: -0.1
   - Title: "\u3010\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u3011\u3000\u653B\u6483\u529B+5%"
     Id: 2
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"
@@ -50,8 +50,11 @@ MonoBehaviour:
     Icon: {fileID: 580792281282963501, guid: d3b2171c6c28fef419d7e9245f90a127, type: 3}
     Bonuses:
     - Type: 1
-      Key: 2
-      Value: 0.05
+      Key: 10
+      Value: -0.05
+    - Type: 1
+      Key: 11
+      Value: -0.05
   - Title: "\u3010\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7\u3011\u3000\u653B\u6483\u529B+25%"
     Id: 4
     Name: "\u6B66\u5668\u30EC\u30D9\u30EB\u30A2\u30C3\u30D7"

@@ -108,8 +108,11 @@ public class GameSceneDirector : MonoBehaviour
 
         if(_gameTimer > _gameOverTime)
         {
+            DestroyForceDamageText();
+            
+
             _backGroundImage.gameObject.SetActive(true);
-            _backGroundImage.DOFade(0.5f, 1.5f)
+            _backGroundImage.DOFade(0.5f, 2f)
                 .OnComplete(() =>
                 {
                     RankingSaveData.Instance.SaveRankingData();
@@ -396,6 +399,18 @@ public class GameSceneDirector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 強制的なダメージ非表示処理
+    /// </summary>
+    private void DestroyForceDamageText()
+    {
+        var texts = FindObjectsOfType<DamageText>();
+        foreach (var t in texts)
+        {
+            Destroy(gameObject);
+        }
+    }
+ 
     //倒した敵をカウント
     //public void AddDefeatedEnemy()
     //{

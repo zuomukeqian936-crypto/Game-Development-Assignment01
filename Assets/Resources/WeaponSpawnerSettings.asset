@@ -158,8 +158,8 @@ MonoBehaviour:
     LevelUpItemIdMin: 0
     LevelUpItemIdMax: 4
     _spawnCount: 4
-    _spawnTimerMin: 0.5
-    _spawnTimerMax: 2
+    _spawnTimerMin: 3
+    _spawnTimerMax: 4
   - Title: "\u5186\u6708\u8F2A"
     Id: 7
     Lv: 1

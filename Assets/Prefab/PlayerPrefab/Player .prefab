@@ -153,8 +153,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.06671715, y: 0.094187975}
-  m_Size: {x: 1.3991032, y: 5.51755}
+  m_Offset: {x: 0.106835365, y: 0.02999872}
+  m_Size: {x: 1.2867689, y: 5.870592}
   m_Direction: 0
 --- !u!50 &-582143142749934284
 Rigidbody2D:
@@ -234,11 +234,11 @@ MonoBehaviour:
     AliveTime: 0
     _prefabSpawner: {fileID: 0}
     _icon: {fileID: 0}
-    _leevlUpItemId: 0
+    LevelUpItemIdMin: 0
+    LevelUpItemIdMax: 0
     _spawnCount: 0
     _spawnTimerMin: 0
     _spawnTimerMax: 0
-  _maxLevel: 1000
   _addXP: 16
   _forward: {x: 0, y: 0}
   _weaponSpawner: []

@@ -116,6 +116,6 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScore(float score)
     {
         Score += score;
-        Debug.Log(score);
+        //Debug.Log(score);
     }
 }

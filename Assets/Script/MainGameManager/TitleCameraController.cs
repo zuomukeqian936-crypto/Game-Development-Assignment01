@@ -23,7 +23,7 @@ public class TitleCameraController : MonoBehaviour
     {
         _currentPosition = Camera.main.transform.position;
 
-        Debug.Log(_currentPosition);
+        //Debug.Log(_currentPosition);
     }
 
     // Update is called once per frame
