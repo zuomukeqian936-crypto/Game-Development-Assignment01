@@ -18921,7 +18921,7 @@ MonoBehaviour:
   _ImagePlayerIconPrefab: {fileID: 562145596162527340, guid: 774c6dad5d951974ca8ae262f26ee63e, type: 3}
   _defeatedEnemyCountText: {fileID: 556447559}
   _defeatedEnemyCount: 0
-  _gameOverTime: 900
+  _gameOverTime: 361
   _TileMapStart: {x: 0, y: 0}
   _TileMapEnd: {x: 0, y: 0}
   _WorldStart: {x: 0, y: 0}
